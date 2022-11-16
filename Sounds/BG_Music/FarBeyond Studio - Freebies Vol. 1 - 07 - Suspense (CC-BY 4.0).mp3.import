@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c68hnq3d4pv2f"
+path="res://.godot/imported/FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3-dfedeb97cb30cf99f01fd4e7e9b216e6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/BG_Music/FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3"
+dest_files=["res://.godot/imported/FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3-dfedeb97cb30cf99f01fd4e7e9b216e6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
