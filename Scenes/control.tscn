@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkmjct8rrtq0v"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Scripts/Control.gd" id="1_rose1"]
-[ext_resource type="AudioStream" uid="uid://ccu5iebtymo11" path="res://Sounds/Sound Effects/Retro Charge 07.wav" id="2_0o85t"]
+[ext_resource type="Script" path="res://scripts/Control.gd" id="1_rose1"]
+[ext_resource type="AudioStream" uid="uid://ccu5iebtymo11" path="res://sounds/Sound Effects/Retro Charge 07.wav" id="2_0o85t"]
 
 [node name="Options" type="Control"]
 layout_mode = 3

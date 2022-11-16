@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhkrhuoeon20s"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_26xri"]
+[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_26xri"]
 
 [sub_resource type="Animation" id="Animation_cuqff"]
 resource_name = "RESET"

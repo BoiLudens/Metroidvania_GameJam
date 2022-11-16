@@ -1,6 +1,6 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1668568885
-::res://Configs/::1668566567
+::res://::1668639045
+::res://configs/::1668566567
 export_presets.cfg::TextFile::-1::1668566304::0::1::::<><>::
 ::res://hjk/::1668567474
 test menu_1.2.apple-touch-icon.png::CompressedTexture2D::1722075216046215156::1668567474::1668567474::1::::<><>::
@@ -10,35 +10,29 @@ test menu_1.2.png::CompressedTexture2D::4060134606302757421::1668567474::1668567
 index.apple-touch-icon.png::CompressedTexture2D::7797026655482656782::1668567474::1668567474::1::::<><>::
 index.icon.png::CompressedTexture2D::4014714477934660558::1668567474::1668567474::1::::<><>::
 index.png::CompressedTexture2D::3909633468148705006::1668567474::1668567474::1::::<><>::
-::res://Images/::1668566531
-background_layer_1.png::CompressedTexture2D::1513721049859510487::1668566304::1668566490::1::::<><>::
-icon.svg::CompressedTexture2D::6093113169112509666::1668557384::1668566528::1::::<><>::
-test menu_1.2.apple-touch-icon.png::CompressedTexture2D::9204766476707525142::1668566305::1668566526::1::::<><>::
-test menu_1.2.icon.png::CompressedTexture2D::6298101670928780764::1668566305::1668566523::1::::<><>::
-test menu_1.2.png::CompressedTexture2D::3610106854374865830::1668566305::1668566531::1::::<><>::
-::res://Images/BG_Images/::1668567474
-background4b.png::CompressedTexture2D::6930777801799891321::1668566304::1668567474::1::::<><>::
-::res://Scenes/::1668568811
-background.tscn::PackedScene::-1::1668566499::0::1::::<><>::res://Scripts/background.gd<>uid://vti082iaewp8
-bg_music.tscn::PackedScene::-1::1668566551::0::1::::<><>::uid://c68hnq3d4pv2f
-control.tscn::PackedScene::7886474094749136815::1668568484::0::1::::<><>::res://Scripts/Control.gd<>uid://ccu5iebtymo11
-menu.tscn::PackedScene::1223063457599990687::1668568811::0::1::::<><>::res://Scripts/menu.gd<>uid://c50k5r38teqrh
-scene_transition.tscn::PackedScene::2899432128429547800::1668568553::0::1::::<><>::res://Scripts/scene_transition.gd
-::res://Scripts/::1668568699
+::res://images/::1668639010
+background_layer_1.png::CompressedTexture2D::1513721049859510487::1668566304::1668639010::1::::<><>::
+icon.svg::CompressedTexture2D::6093113169112509666::1668557384::1668639010::1::::<><>::
+test menu_1.2.apple-touch-icon.png::CompressedTexture2D::9204766476707525142::1668566305::1668639010::1::::<><>::
+test menu_1.2.icon.png::CompressedTexture2D::6298101670928780764::1668566305::1668639010::1::::<><>::
+test menu_1.2.png::CompressedTexture2D::3610106854374865830::1668566305::1668639010::1::::<><>::
+::res://images/BG_Images/::1668639010
+background4b.png::CompressedTexture2D::6930777801799891321::1668566304::1668639010::1::::<><>::
+::res://scenes/::1668639034
+background.tscn::PackedScene::-1::1668639022::0::1::::<><>::res://scripts/background.gd<>uid://vti082iaewp8
+bg_music.tscn::PackedScene::-1::1668639034::0::1::::<><>::uid://c68hnq3d4pv2f
+control.tscn::PackedScene::-1::1668639034::0::1::::<><>::res://scripts/Control.gd<>uid://ccu5iebtymo11
+menu.tscn::PackedScene::-1::1668639022::0::1::::<><>::res://scripts/menu.gd<>uid://c50k5r38teqrh
+scene_transition.tscn::PackedScene::-1::1668639022::0::1::::<><>::res://scripts/scene_transition.gd
+::res://scripts/::1668568699
 background.gd::GDScript::-1::1668566790::0::1::::<>Node2D<>::
 Control.gd::GDScript::-1::1668566861::0::1::::<>Control<>::
 menu.gd::GDScript::-1::1668567098::0::1::::<>Control<>::
 scene_transition.gd::GDScript::-1::1668568699::0::1::::<>CanvasLayer<>::
-::res://Sound/::1668567474
-::res://Sound/BG_Music/::1668567474
-FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3::AudioStreamMP3::7017269104123108247::1668567474::1668567474::1::::<><>::
-FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).wav::AudioStreamWAV::7650214970887362886::1668567474::1668567474::1::::<><>::
-::res://Sound/Sound Effects/::1668567474
-Retro Charge 07.wav::AudioStreamWAV::4956342618411734342::1668567474::1668567474::1::::<><>::
-::res://Sounds/::1668566554
+::res://sounds/::1668566554
 default_bus_layout.tres::AudioBusLayout::867803606868888849::1668566304::0::1::::<><>::
-::res://Sounds/BG_Music/::1668566552
-FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3::AudioStreamMP3::7017269104123108247::1668566304::1668566552::1::::<><>::
-FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).wav::AudioStreamWAV::7650214970887362886::1668566304::1668566552::1::::<><>::
-::res://Sounds/Sound Effects/::1668566552
-Retro Charge 07.wav::AudioStreamWAV::4956342618411734342::1668566304::1668566552::1::::<><>::
+::res://sounds/BG_Music/::1668639034
+FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3::AudioStreamMP3::7017269104123108247::1668566304::1668639034::1::::<><>::
+FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).wav::AudioStreamWAV::7650214970887362886::1668566304::1668639034::1::::<><>::
+::res://sounds/Sound Effects/::1668639034
+Retro Charge 07.wav::AudioStreamWAV::4956342618411734342::1668566304::1668639034::1::::<><>::
