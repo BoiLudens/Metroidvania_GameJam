@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="AudioStream" uid="uid://c68hnq3d4pv2f" path="res://sounds/BG_Music/FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3" id="1_5wfxs"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_5wfxs")
+autoplay = true
+bus = &"Music"
