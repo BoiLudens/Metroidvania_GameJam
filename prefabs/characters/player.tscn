@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi45eew7uaca1"]
+
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_lt4bi"]
+[ext_resource type="Texture2D" uid="uid://d1ng8pigmggtg" path="res://sprites/characters/punk/Punk_idle.png" id="1_y0ooo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl216"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huxmp"]
+atlas = ExtResource("1_y0ooo")
+region = Rect2(0, 11, 28, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mds56"]
+atlas = ExtResource("1_y0ooo")
+region = Rect2(48, 11, 28, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0gs6"]
+atlas = ExtResource("1_y0ooo")
+region = Rect2(96, 11, 28, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74jtl"]
+atlas = ExtResource("1_y0ooo")
+region = Rect2(144, 11, 28, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c400t"]
+animations = [{
+"frames": [SubResource("AtlasTexture_huxmp"), SubResource("AtlasTexture_mds56"), SubResource("AtlasTexture_g0gs6"), SubResource("AtlasTexture_74jtl")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(0, -20)
+script = ExtResource("1_lt4bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dl216")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_c400t")
+playing = true
