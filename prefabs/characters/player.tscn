@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi45eew7uaca1"]
+[gd_scene load_steps=11 format=3 uid="uid://bi45eew7uaca1"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_lt4bi"]
 [ext_resource type="Texture2D" uid="uid://d1ng8pigmggtg" path="res://sprites/characters/punk/Punk_idle.png" id="1_y0ooo"]
+[ext_resource type="Script" path="res://scripts/characters/hitbox.gd" id="3_0d4jq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl216"]
 
@@ -29,6 +30,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mcup"]
+size = Vector2(20, 33)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(0, -20)
 script = ExtResource("1_lt4bi")
@@ -39,3 +43,12 @@ shape = SubResource("CapsuleShape2D_dl216")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_c400t")
 playing = true
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("3_0d4jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_2mcup")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -7,7 +7,13 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal set_health(health)
+
 @onready var animated_sprite = $AnimatedSprite2D
+var health = 100
+
+func _ready():
+	emit_signal("set_health", health)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -32,3 +38,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func _on_hit_box_area_entered(area):
+	if (area.name == "Hurt Box"):
+		health -= area.damage
+		emit_signal("set_health", health)

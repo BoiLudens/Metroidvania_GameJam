@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://4rxh5sdqrq0n"]
+
+[ext_resource type="Script" path="res://scripts/characters/health_bar.gd" id="1_u53j8"]
+[ext_resource type="Texture2D" uid="uid://b6bicjm3weyaq" path="res://sprites/ui/status/Clock-Bar-Background.png" id="2_umxfd"]
+[ext_resource type="Texture2D" uid="uid://b2f6e1euy3fxd" path="res://sprites/ui/status/Clock-Bar-Filled.png" id="3_cucbu"]
+[ext_resource type="Texture2D" uid="uid://lif5ii2d4mhp" path="res://sprites/ui/status/H-Bar-Background.png" id="4_txip3"]
+[ext_resource type="Texture2D" uid="uid://cfu6ron0rt6lm" path="res://sprites/ui/status/H-Bar-Filled.png" id="5_eeg38"]
+
+[node name="Health Bar" type="Node2D"]
+script = ExtResource("1_u53j8")
+
+[node name="ClockProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 59.0
+offset_bottom = 56.0
+max_value = 50.0
+fill_mode = 4
+texture_under = ExtResource("2_umxfd")
+texture_progress = ExtResource("3_cucbu")
+radial_initial_angle = 90.0
+
+[node name="HorizontalProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 34.0
+offset_top = 16.0
+offset_right = 74.0
+offset_bottom = 56.0
+min_value = 50.0
+value = 50.0
+texture_under = ExtResource("4_txip3")
+texture_progress = ExtResource("5_eeg38")
