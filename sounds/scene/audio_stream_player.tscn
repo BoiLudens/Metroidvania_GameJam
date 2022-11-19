@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="AudioStream" uid="uid://cx76s8a1xbl3w" path="res://sounds/background/01 - Four Brave Champions.mp3" id="1_j8vco"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_j8vco")
+autoplay = true
+bus = &"Music"

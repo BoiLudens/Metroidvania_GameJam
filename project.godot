@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneTransition="*res://prefabs/ui/transition/scene_transition.tscn"
-GlobalAudioStreamPlayer="*res://Sounds/scene/audio_stream_player.tscn"
+GlobalAudioStreamPlayer="*res://sounds/scene/audio_stream_player.tscn"
 
 [input]
 
