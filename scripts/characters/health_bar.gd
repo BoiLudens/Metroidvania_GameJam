@@ -19,11 +19,10 @@ func set_health_bars(health):
 	health_bar.value = health
 	
 func health_affect(operation, new_health):
-	# this operations are flipped and I dont know why
 	if (operation == "add"):
-		health = health - new_health
-	elif (operation == "sub"):
 		health = health + new_health
+	elif (operation == "sub"):
+		health = health - new_health
 	set_health_bars(health)
 
 func _on_player_hit(health):

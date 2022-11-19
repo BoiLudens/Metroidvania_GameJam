@@ -41,4 +41,4 @@ func _physics_process(delta):
 
 
 func _on_hit_box_body_entered(body):
-	emit_signal("hit", -10)
+	emit_signal("hit", 10)
