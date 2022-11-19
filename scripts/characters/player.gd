@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal hit(health)
 
 @onready var animated_sprite = $AnimatedSprite2D
+var health = 100
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -37,4 +38,5 @@ func _physics_process(delta):
 
 func _on_hit_box_area_entered(area):
 	if (area.name == "Hurt Box"):
-		emit_signal("hit", area.damage)
+		health -= area.damage
+		emit_signal("hit", health)
