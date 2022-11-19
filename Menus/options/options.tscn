@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgcwo1h6ovmfg"]
+
+[ext_resource type="Script" path="res://scripts/Main Menu/options.gd" id="1_lsstl"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lsstl")
+
+[node name="back" type="Button" parent="."]
+offset_left = 225.0
+offset_top = 31.0
+offset_right = 452.0
+offset_bottom = 62.0
+text = "Back"
+
+[node name="Master" type="HSlider" parent="."]
+anchors_preset = -1
+anchor_right = 0.051
+anchor_bottom = 0.085
+offset_left = 227.0
+offset_top = 62.0
+offset_right = 383.248
+offset_bottom = 53.92
+min_value = -40.0
+max_value = 0.0
+
+[node name="Master" type="RichTextLabel" parent="Master"]
+offset_left = -1.0
+offset_top = 42.0
+offset_right = 137.0
+offset_bottom = 82.0
+text = "Master Volume"
+
+[node name="Music" type="HSlider" parent="."]
+anchors_preset = -1
+anchor_right = 0.023
+anchor_bottom = 0.026
+offset_left = 230.0
+offset_top = 156.0
+offset_right = 399.504
+offset_bottom = 155.152
+min_value = -40.0
+max_value = 0.0
+
+[node name="Music" type="RichTextLabel" parent="Music"]
+offset_left = -3.0
+offset_top = 24.0
+offset_right = 115.0
+offset_bottom = 64.0
+text = "Music Volume"
+
+[node name="sfx" type="HSlider" parent="."]
+offset_left = 236.0
+offset_top = 281.0
+offset_right = 475.0
+offset_bottom = 297.0
+min_value = -40.0
+max_value = 0.0
+
+[node name="sfx" type="RichTextLabel" parent="sfx"]
+offset_left = -3.0
+offset_top = 36.0
+offset_right = 139.0
+offset_bottom = 76.0
+text = "SFX Volume"
+
+[node name="test_sfx" type="Button" parent="."]
+offset_left = 237.0
+offset_top = 232.0
+offset_right = 309.0
+offset_bottom = 263.0
+text = "Test SFX"
+
+[node name="sfx_test" type="AudioStreamPlayer" parent="."]
+
+[connection signal="value_changed" from="Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="test_sfx" to="." method="_on_test_sfx_pressed"]
