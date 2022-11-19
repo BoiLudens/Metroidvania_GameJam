@@ -35,9 +35,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-#func _on_hit_box_hit_player():
-	#emit_signal("hit", 10)
-
-
-func _on_spike_hurt_player(damage):
-	emit_signal("hit", 10)
+func _on_hit_box_area_entered(area):
+	if (area.name == "Hurt Box"):
+		emit_signal("hit", area.damage)

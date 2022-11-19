@@ -51,4 +51,4 @@ script = ExtResource("3_0d4jq")
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_2mcup")
 
-[connection signal="hit_player" from="HitBox" to="." method="_on_hit_box_hit_player"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
