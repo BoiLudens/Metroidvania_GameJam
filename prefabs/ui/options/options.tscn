@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://fjwh67hgpmun"]
+[gd_scene load_steps=3 format=3 uid="uid://dykdrm6nybkun"]
 
-[ext_resource type="Script" path="res://scripts/UI/menu/options.gd" id="1_g0uky"]
+[ext_resource type="Script" path="res://scripts/ui/menu/options.gd" id="1_g0uky"]
 [ext_resource type="AudioStream" uid="uid://cao3udnmvbj1r" path="res://Sounds/SFX/Retro Charge 07.wav" id="2_sfrmy"]
 
 [node name="Control" type="Control"]
