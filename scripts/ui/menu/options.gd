@@ -10,7 +10,7 @@ func _process(delta):
 	pass
 
 func _on_back_pressed():
-	SceneTransition.change_scene_to_file("res://prefabs/ui/main/main_menu.tscn")
+	SceneTransition.change_scene_to_file("res://levels/main_menu.tscn")
 
 
 func _on_master_value_changed(value):
