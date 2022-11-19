@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7l7vbneo5swm"]
+[gd_scene load_steps=7 format=3 uid="uid://c7l7vbneo5swm"]
 
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Texture2D" uid="uid://c8sgyqog117gt" path="res://sprites/terrain/Terrain (16x16).png" id="2_hgd5v"]
 [ext_resource type="PackedScene" uid="uid://bi45eew7uaca1" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
-[ext_resource type="Texture2D" uid="uid://x4n6yny511gu" path="res://sprites/traps/Spike.png" id="4_woqlg"]
+[ext_resource type="PackedScene" uid="uid://fjxr35u7u4tk" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pl66"]
 texture = ExtResource("2_hgd5v")
@@ -468,9 +468,6 @@ texture = ExtResource("2_hgd5v")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_8pl66")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxc5x"]
-size = Vector2(32, 18)
-
 [node name="Debug Land" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -492,14 +489,7 @@ layer_0/tile_data = PackedInt32Array(65533, 851969, 4, 65534, 851969, 4, 65535, 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Spike" type="StaticBody2D" parent="."]
-position = Vector2(50, -14)
-
-[node name="Spike" type="Sprite2D" parent="Spike"]
-texture = ExtResource("4_woqlg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
-position = Vector2(-0.562, 7)
-shape = SubResource("RectangleShape2D_vxc5x")
+[node name="Spike" parent="." instance=ExtResource("4_psh6k")]
 
 [connection signal="hit" from="Player" to="CanvasLayer/Health Bar" method="_on_player_hit"]
+[connection signal="hurt_player" from="Spike" to="Player" method="_on_spike_hurt_player"]
