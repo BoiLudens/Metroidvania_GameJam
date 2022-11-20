@@ -14,9 +14,3 @@ func _process(delta):
 
 func _on_checkpoint_set_checkpoint(new_checkpoint_position):
 	checkpoint = new_checkpoint_position
-	print(checkpoint)
-	
-
-
-func _on_player_player_death():
-	pass # Replace with function body.
