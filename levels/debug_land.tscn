@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7l7vbneo5swm"]
+[gd_scene load_steps=9 format=3 uid="uid://c7l7vbneo5swm"]
 
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
+[ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
 [ext_resource type="Texture2D" uid="uid://c8sgyqog117gt" path="res://sprites/terrain/Terrain (16x16).png" id="2_hgd5v"]
 [ext_resource type="PackedScene" uid="uid://bi45eew7uaca1" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
 [ext_resource type="PackedScene" uid="uid://fjxr35u7u4tk" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
+[ext_resource type="PackedScene" uid="uid://b6t20a2msnnpa" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pl66"]
 texture = ExtResource("2_hgd5v")
@@ -470,10 +472,13 @@ sources/1 = SubResource("TileSetAtlasSource_8pl66")
 
 [node name="Debug Land" type="Node2D"]
 
+[node name="GameManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_oc4k2")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Health Bar" parent="CanvasLayer" instance=ExtResource("1_f3n6p")]
-unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -20)
@@ -482,7 +487,7 @@ current = true
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qg0ju")
 format = 2
-layer_0/tile_data = PackedInt32Array(65533, 851969, 4, 65534, 851969, 4, 65535, 851969, 4, 0, 851969, 4, 1, 851969, 4, 2, 851969, 4, 3, 851969, 4, 4, 851969, 4, 5, 851969, 4, 6, 851969, 4, 7, 851969, 4, 65532, 851969, 4, 65531, 851969, 4, 65530, 851969, 4)
+layer_0/tile_data = PackedInt32Array(65533, 851969, 4, 65534, 851969, 4, 65535, 851969, 4, 0, 851969, 4, 1, 851969, 4, 2, 851969, 4, 3, 851969, 4, 4, 851969, 4, 5, 851969, 4, 6, 851969, 4, 7, 851969, 4, 65532, 851969, 4, 65531, 851969, 4, 65530, 851969, 4, 65529, 851969, 4, 65528, 851969, 4, 65527, 851969, 4, 65526, 851969, 4, 65525, 851969, 4, 65524, 851969, 4, 65523, 851969, 4, 65522, 851969, 4, 65521, 851969, 4, 8, 851969, 4, 9, 851969, 4, 10, 851969, 4, 11, 851969, 4, 12, 851969, 4, 13, 851969, 4, 14, 851969, 4, 15, 851969, 4, 16, 851969, 4)
 
 [node name="Player" parent="." instance=ExtResource("2_woqcb")]
 
@@ -491,4 +496,8 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Spike" parent="." instance=ExtResource("4_psh6k")]
 
+[node name="Checkpoint" parent="." instance=ExtResource("6_3t5gn")]
+position = Vector2(-145, -15)
+
 [connection signal="set_health" from="Player" to="CanvasLayer/Health Bar" method="_on_player_set_health"]
+[connection signal="set_checkpoint" from="Checkpoint" to="GameManager" method="_on_checkpoint_set_checkpoint"]
