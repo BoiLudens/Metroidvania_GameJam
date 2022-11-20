@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var hurt_box = $"Hurt Box"
+@onready var hurt_box = $"HurtBox"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
