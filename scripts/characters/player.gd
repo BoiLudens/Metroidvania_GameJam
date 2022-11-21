@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var game_manager = %GameManager
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var hurt_box = $HurtBox
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -47,7 +48,6 @@ func check_death():
 		position = game_manager.checkpoint
 		health = 100
 
-func _on_hit_box_area_entered(area):
-	if (area.name == "HitBox"):
-		health -= area.damage
-		emit_signal("set_health", health)
+func take_damage(damage):
+	health -= damage
+	emit_signal("set_health", health)

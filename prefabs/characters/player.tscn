@@ -50,5 +50,3 @@ script = ExtResource("3_0d4jq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_2mcup")
-
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hit_box_area_entered"]

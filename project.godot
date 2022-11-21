@@ -8,6 +8,22 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Area2D",
+"class": &"HitBox",
+"language": &"GDScript",
+"path": "res://scripts/traps/hit_box.gd"
+}, {
+"base": "Area2D",
+"class": &"HurtBox",
+"language": &"GDScript",
+"path": "res://scripts/characters/hurt_box.gd"
+}]
+_global_script_class_icons={
+"HitBox": "",
+"HurtBox": ""
+}
+
 [application]
 
 config/name="MetroidVania GameJam"
