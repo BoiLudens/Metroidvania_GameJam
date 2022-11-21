@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://fjxr35u7u4tk"]
+[gd_scene load_steps=6 format=3 uid="uid://lcagdx7sdahv"]
 
 [ext_resource type="Script" path="res://scripts/traps/spike.gd" id="1_ra31h"]
 [ext_resource type="Texture2D" uid="uid://x4n6yny511gu" path="res://sprites/traps/Spike.png" id="2_iuxts"]
-[ext_resource type="Script" path="res://scripts/traps/hurt_box.gd" id="3_v3odv"]
+[ext_resource type="Script" path="res://scripts/traps/hit_box.gd" id="3_v3odv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irxnc"]
 size = Vector2(32, 2)
@@ -17,10 +17,10 @@ script = ExtResource("1_ra31h")
 [node name="SpikeSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_iuxts")
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="."]
 script = ExtResource("3_v3odv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_irxnc")
 
 [node name="StaticBox" type="StaticBody2D" parent="."]

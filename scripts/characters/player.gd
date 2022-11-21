@@ -48,6 +48,6 @@ func check_death():
 		health = 100
 
 func _on_hit_box_area_entered(area):
-	if (area.name == "HurtBox"):
+	if (area.name == "HitBox"):
 		health -= area.damage
 		emit_signal("set_health", health)

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
 [ext_resource type="Texture2D" uid="uid://c8sgyqog117gt" path="res://sprites/terrain/Terrain (16x16).png" id="2_hgd5v"]
-[ext_resource type="PackedScene" uid="uid://bi45eew7uaca1" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
-[ext_resource type="PackedScene" uid="uid://fjxr35u7u4tk" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
+[ext_resource type="PackedScene" uid="uid://d1vrkvvchdtat" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
+[ext_resource type="PackedScene" uid="uid://lcagdx7sdahv" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
 [ext_resource type="PackedScene" uid="uid://b6t20a2msnnpa" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pl66"]
