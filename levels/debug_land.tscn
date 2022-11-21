@@ -495,6 +495,7 @@ layer_0/tile_data = PackedInt32Array(65533, 851969, 4, 65534, 851969, 4, 65535, 
 remote_path = NodePath("../../Camera2D")
 
 [node name="Spike" parent="." instance=ExtResource("4_psh6k")]
+position = Vector2(76, 0)
 
 [node name="Checkpoint" parent="." instance=ExtResource("6_3t5gn")]
 position = Vector2(-145, -15)

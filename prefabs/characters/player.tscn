@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1vrkvvchdtat"]
+[gd_scene load_steps=17 format=3 uid="uid://d1vrkvvchdtat"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_lt4bi"]
 [ext_resource type="Texture2D" uid="uid://d1ng8pigmggtg" path="res://sprites/characters/punk/Punk_idle.png" id="1_y0ooo"]
 [ext_resource type="Script" path="res://scripts/characters/hurt_box.gd" id="3_0d4jq"]
+[ext_resource type="Texture2D" uid="uid://cb3i85skvmb73" path="res://sprites/weapons/Whip.png" id="4_i742j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl216"]
 
@@ -30,6 +31,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_to47i"]
+atlas = ExtResource("4_i742j")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub3en"]
+atlas = ExtResource("4_i742j")
+region = Rect2(0, 16, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmg65"]
+atlas = ExtResource("4_i742j")
+region = Rect2(0, 32, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pmgc"]
+atlas = ExtResource("4_i742j")
+region = Rect2(0, 48, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b36h8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_to47i"), SubResource("AtlasTexture_ub3en"), SubResource("AtlasTexture_wmg65"), SubResource("AtlasTexture_0pmgc"), SubResource("AtlasTexture_to47i")],
+"loop": false,
+"name": &"whip",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mcup"]
 size = Vector2(20, 33)
 
@@ -40,9 +70,14 @@ script = ExtResource("1_lt4bi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dl216")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_c400t")
 playing = true
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="PlayerSprite"]
+frames = SubResource("SpriteFrames_b36h8")
+animation = &"whip"
+offset = Vector2(31.152, -0.879)
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
