@@ -12,12 +12,13 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = 100
+var whip_damage = 20
 
 signal set_health(health)
 
 func _ready():
 	emit_signal("set_health", health)
-	sprite_weapon.get_node("HitBox").set_damage(100)
+	sprite_weapon.get_node("HitBox").set_damage(whip_damage)
 
 func _process(delta):
 	check_death()

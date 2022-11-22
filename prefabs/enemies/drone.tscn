@@ -18,3 +18,9 @@ script = ExtResource("3_esks3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_c3wv7")
+
+[node name="Health" type="ProgressBar" parent="."]
+offset_left = -2.0
+offset_top = -45.0
+offset_right = 2.0
+offset_bottom = -18.0
