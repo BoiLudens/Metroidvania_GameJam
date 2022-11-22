@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @onready var game_manager = %GameManager
-@onready var animated_sprite: AnimatedSprite2D = $PlayerSprite
-@onready var animated_weapon: AnimatedSprite2D = animated_sprite.get_node("WeaponSprite")
+@onready var sprite_player = $PlayerSprite
+@onready var sprite_weapon = sprite_player.get_node("WeaponSprite")
+@onready var animator = $AnimationPlayer
 @onready var hurt_box = $HurtBox
 
 const SPEED = 300.0
@@ -16,9 +17,12 @@ signal set_health(health)
 
 func _ready():
 	emit_signal("set_health", health)
+	sprite_weapon.get_node("HitBox").set_damage(100)
 
 func _process(delta):
 	check_death()
+	if Input.is_action_just_pressed("action_attack"):
+		animator.play("Attack")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,9 +32,6 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("action_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
-	if Input.is_action_just_pressed("action_attack"):
-		animated_weapon.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -39,9 +40,9 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		
 		if(velocity.x < 0):
-			animated_sprite.scale.x = -1
+			sprite_player.scale.x = -1
 		elif(velocity.x > 0):
-			animated_sprite.scale.x = 1
+			sprite_player.scale.x = 1
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
