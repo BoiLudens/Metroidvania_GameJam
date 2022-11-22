@@ -10,7 +10,7 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -400.0
 
 #dash
-var dash_direction = Vector2(1,0)
+var dash_direction
 var can_dash = false
 var dashing = false
 
@@ -25,6 +25,7 @@ signal set_health(health)
 func _ready():
 	emit_signal("set_health", health)
 	sprite_weapon.get_node("HitBox").set_damage(whip_damage)
+	dash_direction = Vector2(-sprite_player.scale.x, 0)
 
 func _process(delta):
 	check_death()
@@ -64,9 +65,9 @@ func dash():
 	if is_on_floor():
 		can_dash = true
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("move_left"):
 		dash_direction = Vector2(1,0)
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("move_right"):
 		dash_direction = Vector2(-1,0)
 		
 	if Input.is_action_just_pressed("dash") and can_dash:
