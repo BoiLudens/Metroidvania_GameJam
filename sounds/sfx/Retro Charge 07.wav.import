@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cao3udnmvbj1r"
-path="res://.godot/imported/Retro Charge 07.wav-38bd69002301134f62c36688dbd8a691.sample"
+path="res://.godot/imported/Retro Charge 07.wav-ef206a099929f23d68788d9d33f5b0ee.sample"
 
 [deps]
 
-source_file="res://sounds/sfx/Retro Charge 07.wav"
-dest_files=["res://.godot/imported/Retro Charge 07.wav-38bd69002301134f62c36688dbd8a691.sample"]
+source_file="res://Sounds/SFX/Retro Charge 07.wav"
+dest_files=["res://.godot/imported/Retro Charge 07.wav-ef206a099929f23d68788d9d33f5b0ee.sample"]
 
 [params]
 
