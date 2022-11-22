@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://fjxr35u7u4tk"]
+[gd_scene load_steps=6 format=3 uid="uid://chlgqsfa621qr"]
 
 [ext_resource type="Script" path="res://scripts/traps/spike.gd" id="1_ra31h"]
 [ext_resource type="Texture2D" uid="uid://x4n6yny511gu" path="res://sprites/traps/Spike.png" id="2_iuxts"]
-[ext_resource type="Script" path="res://scripts/traps/hurt_box.gd" id="3_v3odv"]
+[ext_resource type="Script" path="res://nodes/hit_box.gd" id="3_ymbwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irxnc"]
 size = Vector2(32, 2)
@@ -10,21 +10,22 @@ size = Vector2(32, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxc5x"]
 size = Vector2(32, 15)
 
-[node name="Spike" type="Node2D"]
-position = Vector2(47.173, -15.154)
+[node name="SpikeSprite" type="Sprite2D"]
+position = Vector2(0, -16)
+texture = ExtResource("2_iuxts")
 script = ExtResource("1_ra31h")
 
-[node name="Spike Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_iuxts")
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_ymbwf")
 
-[node name="Hurt Box" type="Area2D" parent="."]
-script = ExtResource("3_v3odv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt Box"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_irxnc")
 
-[node name="Static Box" type="StaticBody2D" parent="."]
+[node name="StaticBox" type="StaticBody2D" parent="."]
 position = Vector2(0, 8.677)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static Box"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBox"]
 shape = SubResource("RectangleShape2D_vxc5x")

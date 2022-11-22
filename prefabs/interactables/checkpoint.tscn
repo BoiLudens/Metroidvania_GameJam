@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6t20a2msnnpa"]
+
+[ext_resource type="Script" path="res://prefabs/interactables/checkpoint.gd" id="1_ercrg"]
+[ext_resource type="Texture2D" uid="uid://ccmxap2n2na4l" path="res://sprites/interactables/Checkpoint.png" id="2_3s2ee"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbiv2"]
+
+[node name="Checkpoint" type="Area2D" groups=["checkpoints"]]
+position = Vector2(-146, -31)
+script = ExtResource("1_ercrg")
+
+[node name="Checkpoint Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3s2ee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_dbiv2")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
