@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://crstrth8cg8o7"]
+
+[ext_resource type="Texture2D" uid="uid://cu0wkgqxc6tng" path="res://sprites/enemies/Drone.png" id="1_qj6yq"]
+[ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="2_74bx8"]
+[ext_resource type="Script" path="res://nodes/hurt_box.gd" id="3_esks3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3wv7"]
+
+[node name="Drone" type="Sprite2D"]
+texture = ExtResource("1_qj6yq")
+script = ExtResource("2_74bx8")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_esks3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_c3wv7")
+
+[node name="Health" type="ProgressBar" parent="."]
+offset_left = -2.0
+offset_top = -45.0
+offset_right = 2.0
+offset_bottom = -18.0
