@@ -12,16 +12,16 @@ _global_script_classes=[{
 "base": "Area2D",
 "class": &"HitBox",
 "language": &"GDScript",
-"path": "res://scripts/traps/hit_box.gd"
+"path": "res://nodes/hit_box.gd"
 }, {
 "base": "Area2D",
 "class": &"HurtBox",
 "language": &"GDScript",
-"path": "res://scripts/characters/hurt_box.gd"
+"path": "res://nodes/hurt_box.gd"
 }]
 _global_script_class_icons={
-"HitBox": "",
-"HurtBox": ""
+"HitBox": "res://nodes/HitBox.svg",
+"HurtBox": "res://nodes/HurtBox.svg"
 }
 
 [application]

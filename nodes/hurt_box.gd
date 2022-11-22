@@ -1,5 +1,5 @@
-class_name HurtBox
-extends Area2D
+class_name HurtBox extends Area2D
+@icon("res://nodes/HurtBox.svg")
 
 
 func _init() -> void:
@@ -13,10 +13,7 @@ func _ready() -> void:
 	area_entered.connect(self._on_area_entered)
 
 func _on_area_entered(hitbox: HitBox) -> void:
-	if (hitbox.owner.name != "Player"):
-		
-		print(hitbox.owner.name)
-	if (hitbox.owner != owner):
-		
-		if owner.has_method("take_damage"):
-			owner.take_damage(hitbox.damage)
+	if (hitbox.owner == owner):
+		pass
+	elif owner.has_method("take_damage"):
+		owner.take_damage(hitbox.damage)

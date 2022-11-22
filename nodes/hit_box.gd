@@ -1,5 +1,5 @@
-class_name HitBox
-extends Area2D
+class_name HitBox extends Area2D
+@icon("res://nodes/HitBox.svg")
 
 var damage
 

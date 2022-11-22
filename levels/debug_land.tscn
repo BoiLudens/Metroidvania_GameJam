@@ -1,14 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7l7vbneo5swm"]
+[gd_scene load_steps=10 format=3 uid="uid://duqyacjtf46qh"]
 
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
 [ext_resource type="Texture2D" uid="uid://c8sgyqog117gt" path="res://sprites/terrain/Terrain (16x16).png" id="2_hgd5v"]
-[ext_resource type="PackedScene" uid="uid://d1vrkvvchdtat" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
-[ext_resource type="PackedScene" uid="uid://lcagdx7sdahv" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
+[ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
+[ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
 [ext_resource type="PackedScene" uid="uid://b6t20a2msnnpa" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
-[ext_resource type="Texture2D" uid="uid://cu0wkgqxc6tng" path="res://sprites/enemies/Drone.png" id="7_aguw7"]
-[ext_resource type="Script" path="res://scripts/characters/hurt_box.gd" id="8_3goic"]
-[ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="8_ek3bl"]
+[ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="7_5gh8q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pl66"]
 texture = ExtResource("2_hgd5v")
@@ -473,8 +471,6 @@ texture = ExtResource("2_hgd5v")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_8pl66")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3wv7"]
-
 [node name="Debug Land" type="Node2D"]
 
 [node name="GameManager" type="Node2D" parent="."]
@@ -505,19 +501,8 @@ position = Vector2(76, -15)
 [node name="Checkpoint" parent="." instance=ExtResource("6_3t5gn")]
 position = Vector2(-145, -15)
 
-[node name="Drone" type="Sprite2D" parent="."]
-position = Vector2(41, -20)
-texture = ExtResource("7_aguw7")
-script = ExtResource("8_ek3bl")
-
-[node name="HurtBox" type="Area2D" parent="Drone"]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-script = ExtResource("8_3goic")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone/HurtBox"]
-shape = SubResource("RectangleShape2D_c3wv7")
+[node name="Drone" parent="." instance=ExtResource("7_5gh8q")]
+position = Vector2(46, -37)
 
 [connection signal="set_health" from="Player" to="CanvasLayer/Health Bar" method="_on_player_set_health"]
 [connection signal="set_checkpoint" from="Checkpoint" to="GameManager" method="_on_checkpoint_set_checkpoint"]
