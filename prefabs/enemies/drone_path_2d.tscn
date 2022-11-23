@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://51aritrv1efn"]
+
+[ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="1_ombwf"]
+
+[sub_resource type="Curve2D" id="Curve2D_2bdef"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 23, -57, 0, 0, 0, 0, 161, -60)
+}
+point_count = 2
+
+[node name="DronePath2D" type="Path2D"]
+curve = SubResource("Curve2D_2bdef")
+
+[node name="DronePathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(23, -57)
+rotation = -0.0217355
+
+[node name="Drone" parent="DronePathFollow2D" instance=ExtResource("1_ombwf")]
