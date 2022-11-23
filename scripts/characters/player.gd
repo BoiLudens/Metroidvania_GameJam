@@ -14,7 +14,6 @@ var dash_direction
 var can_dash = false
 var dashing = false
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = 100
@@ -23,18 +22,15 @@ var whip_damage = 20
 signal set_health(health)
 
 func _ready():
-	emit_signal("set_health", health)
-	sprite_weapon.get_node("HitBox").set_damage(whip_damage)
 	dash_direction = Vector2(-sprite_player.scale.x, 0)
+	sprite_weapon.get_node("HitBox").set_damage(whip_damage)
+	emit_signal("set_health", health)
 
-func _process(delta):
+
+func _physics_process(delta):
 	check_death()
 	if Input.is_action_just_pressed("action_attack"):
 		animator.play("Attack")
-
-func _physics_process(delta):
-	dash()
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -47,7 +43,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
+	if direction and !dashing:
 		velocity.x = direction * SPEED
 		
 		if(velocity.x < 0):
@@ -59,6 +55,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	dash()
 	
 	#dash
 func dash():
@@ -71,12 +68,11 @@ func dash():
 		dash_direction = Vector2(-1,0)
 		
 	if Input.is_action_just_pressed("dash") and can_dash:
-		velocity = dash_direction.normalized() * 2000
+		velocity = dash_direction.normalized() * 2500
 		can_dash = false
 		dashing = true
 		await(get_tree().create_timer(0.2).timeout)
 		dashing = false
-	
 
 func check_death():
 	if (health <= 0):
