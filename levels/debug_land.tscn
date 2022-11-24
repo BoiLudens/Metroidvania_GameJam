@@ -522,5 +522,16 @@ position = Vector2(353, -25)
 collision_layer = 4
 collision_mask = 0
 
+[node name="gas_mask" parent="." instance=ExtResource("8_hfryl")]
+position = Vector2(182, -27)
+
+[node name="collisions" type="Node2D" parent="."]
+
+[node name="Node2D" parent="collisions" instance=ExtResource("9_kg4c6")]
+position = Vector2(82, -27)
+
+[node name="Node2D2" parent="collisions" instance=ExtResource("9_kg4c6")]
+position = Vector2(353, -31)
+
 [connection signal="set_health" from="Player" to="CanvasLayer/Health Bar" method="_on_player_set_health"]
 [connection signal="set_checkpoint" from="Checkpoint" to="GameManager" method="_on_checkpoint_set_checkpoint"]
