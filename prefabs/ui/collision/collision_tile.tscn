@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://clr4swltub8aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqsqc"]
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57921
+shape = SubResource("RectangleShape2D_hqsqc")
