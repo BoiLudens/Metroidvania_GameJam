@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 
 @export var starting_direction : Vector2 = Vector2(0,1)
 @export var idle_time : float = .8
@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var left_ray = $LeftRay
 @onready var timer = $Timer
 @onready var gas_mask_sprite = $GasMaskSprite
+@onready var health_sprite = $Health
 
 const UP = Vector2.UP
 

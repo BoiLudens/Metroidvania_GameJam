@@ -27,6 +27,7 @@ offset_left = -15.0
 offset_top = -22.0
 offset_right = 25.0
 offset_bottom = 18.0
+fill_mode = 6
 texture_under = ExtResource("4_aa8k1")
 texture_progress = ExtResource("5_3unni")
 

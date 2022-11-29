@@ -1,8 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4bgcyt51yamp"]
+[gd_scene load_steps=20 format=3 uid="uid://d4bgcyt51yamp"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gas_mask.gd" id="1_vlfmj"]
 [ext_resource type="Texture2D" uid="uid://dt66xlynp2ts1" path="res://sprites/enemies/gas_mask/Walk.png" id="2_kiff0"]
+[ext_resource type="Texture2D" uid="uid://lif5ii2d4mhp" path="res://sprites/ui/status/H-Bar-Background.png" id="2_r3g4p"]
 [ext_resource type="Texture2D" uid="uid://dl6o3jn7orgb0" path="res://sprites/enemies/gas_mask/Idle.png" id="3_agolq"]
+[ext_resource type="Texture2D" uid="uid://cfu6ron0rt6lm" path="res://sprites/ui/status/H-Bar-Filled.png" id="3_r70jm"]
+[ext_resource type="Script" path="res://nodes/hurt_box.gd" id="6_7i51p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1uy3"]
+size = Vector2(21, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8w3d"]
 atlas = ExtResource("3_agolq")
@@ -57,20 +63,37 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1uy3"]
-size = Vector2(21, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydd42"]
 
 [node name="GasMask" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_vlfmj")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a1uy3")
+
 [node name="GasMaskSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_mahp8")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_a1uy3")
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6_7i51p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_ydd42")
+
+[node name="Health" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -22.0
+offset_right = 25.0
+offset_bottom = 18.0
+fill_mode = 6
+texture_under = ExtResource("2_r3g4p")
+texture_progress = ExtResource("3_r70jm")
 
 [node name="LeftRay" type="RayCast2D" parent="."]
 target_position = Vector2(20, 0)
