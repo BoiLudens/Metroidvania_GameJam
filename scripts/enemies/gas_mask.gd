@@ -20,6 +20,8 @@ var stop = 0
 var moving_left = true
 
 func _physics_process(delta):
+	if health_value <= 0:
+		gas_mask_sprite.visible = false
 	move()
 	
 	if left_ray.is_colliding():
@@ -41,3 +43,7 @@ func move():
 func _on_timer_timeout():
 	speed = start
 	move()
+
+
+func _on_death_animation_finished():
+	queue_free()

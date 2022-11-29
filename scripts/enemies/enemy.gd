@@ -7,13 +7,14 @@ var health_value: float = 100
 
 func _ready():
 	set_health_bar(health_value)
+	death.visible = false
 
 func take_damage(damage):
 	health_value -= damage
 	set_health_bar(health_value)
 	if (health_value <= 0):
+		death.visible = true
 		death.play("death")
-		queue_free()
 		
 
 func set_health_bar(health):
