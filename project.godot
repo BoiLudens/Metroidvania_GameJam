@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "CharacterBody2D",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://scripts/enemies/enemy.gd"
+}, {
 "base": "Area2D",
 "class": &"HitBox",
 "language": &"GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[{
 "path": "res://nodes/hurt_box.gd"
 }]
 _global_script_class_icons={
+"Enemy": "",
 "HitBox": "res://nodes/HitBox.svg",
 "HurtBox": "res://nodes/HurtBox.svg"
 }
@@ -112,3 +118,14 @@ action_attack={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Hurt"
+2d_physics/layer_3="Navigation"
+2d_physics/layer_4="Actor"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

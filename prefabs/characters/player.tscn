@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cb3i85skvmb73" path="res://sprites/weapons/Whip.png" id="4_i742j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl216"]
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huxmp"]
 atlas = ExtResource("1_y0ooo")
@@ -123,10 +124,12 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(0, -20)
+position = Vector2(0, -18.483)
+collision_layer = 8
 script = ExtResource("1_lt4bi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.199)
 shape = SubResource("CapsuleShape2D_dl216")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
