@@ -503,8 +503,7 @@ position = Vector2(76, -15)
 [node name="Checkpoint" parent="." instance=ExtResource("6_3t5gn")]
 position = Vector2(-145, -15)
 
-[node name="Drone" parent="." instance=ExtResource("7_5gh8q")]
-position = Vector2(46, -37)
+[node name="DronePath2D" parent="." instance=ExtResource("7_8cte7")]
 
 [node name="gas_mask" parent="." instance=ExtResource("8_hfryl")]
 position = Vector2(182, -27)

@@ -1,19 +1,23 @@
-extends Sprite2D
+extends Enemy
 
-@onready var health_bar = $Health
-var health = 100 
+@export var health_max_override: float = 200
+@export var health_value_override: float = 200
 
-# Called when the node enters the scene tree for the first time.
+@onready var path_follow: PathFollow2D = self.get_parent()
+var move_right: bool = true
+
 func _ready():
-	pass # Replace with function body.
+	health_value = health_value_override
+	health_max = health_value_override
+	set_health_bar(health_value)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	health_bar.value = health
-	if (health <= 0):
-		print("death")
-
-func take_damage(damage):
-	health -= damage
-	print("damage taken")
+func _physics_process(delta):
+	if (path_follow.progress_ratio + delta) <= 1 and move_right:
+		path_follow.progress_ratio += delta
+	else:
+		move_right = false
+	if (path_follow.progress_ratio - delta) >= 0 and !move_right:
+		path_follow.progress_ratio -= delta
+	else:
+		move_right = true
+	

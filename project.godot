@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "CharacterBody2D",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://scripts/enemies/enemy.gd"
+}, {
 "base": "Area2D",
 "class": &"HitBox",
 "language": &"GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[{
 "path": "res://nodes/hurt_box.gd"
 }]
 _global_script_class_icons={
+"Enemy": "",
 "HitBox": "res://nodes/HitBox.svg",
 "HurtBox": "res://nodes/HurtBox.svg"
 }
