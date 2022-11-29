@@ -1,148 +1,80 @@
-[gd_scene load_steps=19 format=3 uid="uid://d4bgcyt51yamp"]
+[gd_scene load_steps=16 format=3 uid="uid://d4bgcyt51yamp"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gas_mask.gd" id="1_vlfmj"]
 [ext_resource type="Texture2D" uid="uid://dt66xlynp2ts1" path="res://sprites/enemies/gas_mask/Walk.png" id="2_kiff0"]
 [ext_resource type="Texture2D" uid="uid://dl6o3jn7orgb0" path="res://sprites/enemies/gas_mask/Idle.png" id="3_agolq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8w3d"]
+atlas = ExtResource("3_agolq")
+region = Rect2(1, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5udfo"]
+atlas = ExtResource("3_agolq")
+region = Rect2(49, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctywo"]
+atlas = ExtResource("3_agolq")
+region = Rect2(97, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lfjv"]
+atlas = ExtResource("3_agolq")
+region = Rect2(145, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trrm4"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(1, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kslm1"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(49, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfv1w"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(97, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o570"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(145, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iwdk"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(193, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fgoc"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(241, 7, 26, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mahp8"]
+animations = [{
+"frames": [SubResource("AtlasTexture_w8w3d"), SubResource("AtlasTexture_5udfo"), SubResource("AtlasTexture_ctywo"), SubResource("AtlasTexture_7lfjv")],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [SubResource("AtlasTexture_trrm4"), SubResource("AtlasTexture_kslm1"), SubResource("AtlasTexture_xfv1w"), SubResource("AtlasTexture_6o570"), SubResource("AtlasTexture_8iwdk"), SubResource("AtlasTexture_5fgoc")],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1uy3"]
 size = Vector2(21, 40)
 
-[sub_resource type="Animation" id="Animation_hdjte"]
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("walk:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.434315),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("idle:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_us4oy"]
-resource_name = "idle"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("idle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1, 2, 3, 3]
-}
-
-[sub_resource type="Animation" id="Animation_d4ddp"]
-resource_name = "walk"
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("walk:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_44efp"]
-_data = {
-"RESET": SubResource("Animation_hdjte"),
-"idle": SubResource("Animation_us4oy"),
-"walk": SubResource("Animation_d4ddp")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4anvp"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_cvqdx"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_4anvp")
-blend_point_0/pos = 0.0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ghdyv"]
-animation = &"walk"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h4exn"]
-animation = &"walk"
-
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_qjfop"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_ghdyv")
-blend_point_0/pos = -0.4
-blend_point_1/node = SubResource("AnimationNodeAnimation_h4exn")
-blend_point_1/pos = 0.3
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4jnq3"]
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d1elw"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rdeq1"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5o37q"]
-states/idle/node = SubResource("AnimationNodeBlendSpace1D_cvqdx")
-states/idle/position = Vector2(546, 100)
-states/walk/node = SubResource("AnimationNodeBlendSpace1D_qjfop")
-states/walk/position = Vector2(371, 100)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_4jnq3"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_d1elw"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_rdeq1")]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_g2ida"]
-
-[node name="gas_mask" type="CharacterBody2D"]
+[node name="GasMask" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_vlfmj")
 
-[node name="walk" type="Sprite2D" parent="."]
-texture = ExtResource("2_kiff0")
-offset = Vector2(10, 0)
-hframes = 6
-
-[node name="idle" type="Sprite2D" parent="."]
-texture = ExtResource("3_agolq")
-offset = Vector2(10, 0)
-hframes = 4
+[node name="GasMaskSprite" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_mahp8")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_a1uy3")
 
-[node name="left_ray" type="RayCast2D" parent="."]
+[node name="LeftRay" type="RayCast2D" parent="."]
 target_position = Vector2(20, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_44efp")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_5o37q")
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_g2ida")
-parameters/idle/blend_position = 0.014111
-parameters/walk/blend_position = Vector2(0.00524938, 0.946808)
+collision_mask = 4
 
 [node name="Timer" type="Timer" parent="."]
 
