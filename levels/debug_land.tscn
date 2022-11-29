@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="8_hfryl"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="9_kg4c6"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="10_0obce"]
+[ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_k0yy8"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ds5v"]
 _data = {
@@ -84,6 +85,9 @@ position = Vector2(41, -35)
 
 [node name="BikerBoss" parent="." instance=ExtResource("10_0obce")]
 position = Vector2(394, -53)
+
+[node name="swing_blade" parent="." instance=ExtResource("10_k0yy8")]
+position = Vector2(106, -72)
 
 [connection signal="set_health" from="Player" to="CanvasLayer/Health Bar" method="_on_player_set_health"]
 [connection signal="set_checkpoint" from="Checkpoint" to="GameManager" method="_on_checkpoint_set_checkpoint"]
