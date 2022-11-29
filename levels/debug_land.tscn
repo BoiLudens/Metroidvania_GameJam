@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
 [ext_resource type="PackedScene" uid="uid://b6t20a2msnnpa" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
-[ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="7_5gh8q"]
+[ext_resource type="PackedScene" uid="uid://51aritrv1efn" path="res://prefabs/enemies/drone_path_2d.tscn" id="7_8cte7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pl66"]
 texture = ExtResource("2_hgd5v")
@@ -501,8 +501,7 @@ position = Vector2(76, -15)
 [node name="Checkpoint" parent="." instance=ExtResource("6_3t5gn")]
 position = Vector2(-145, -15)
 
-[node name="Drone" parent="." instance=ExtResource("7_5gh8q")]
-position = Vector2(46, -37)
+[node name="DronePath2D" parent="." instance=ExtResource("7_8cte7")]
 
 [connection signal="set_health" from="Player" to="CanvasLayer/Health Bar" method="_on_player_set_health"]
 [connection signal="set_checkpoint" from="Checkpoint" to="GameManager" method="_on_checkpoint_set_checkpoint"]
