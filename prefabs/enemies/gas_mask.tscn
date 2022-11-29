@@ -1,0 +1,81 @@
+[gd_scene load_steps=16 format=3 uid="uid://d4bgcyt51yamp"]
+
+[ext_resource type="Script" path="res://scripts/enemies/gas_mask.gd" id="1_vlfmj"]
+[ext_resource type="Texture2D" uid="uid://dt66xlynp2ts1" path="res://sprites/enemies/gas_mask/Walk.png" id="2_kiff0"]
+[ext_resource type="Texture2D" uid="uid://dl6o3jn7orgb0" path="res://sprites/enemies/gas_mask/Idle.png" id="3_agolq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8w3d"]
+atlas = ExtResource("3_agolq")
+region = Rect2(1, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5udfo"]
+atlas = ExtResource("3_agolq")
+region = Rect2(49, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctywo"]
+atlas = ExtResource("3_agolq")
+region = Rect2(97, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lfjv"]
+atlas = ExtResource("3_agolq")
+region = Rect2(145, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trrm4"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(1, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kslm1"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(49, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfv1w"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(97, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o570"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(145, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iwdk"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(193, 7, 26, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fgoc"]
+atlas = ExtResource("2_kiff0")
+region = Rect2(241, 7, 26, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mahp8"]
+animations = [{
+"frames": [SubResource("AtlasTexture_w8w3d"), SubResource("AtlasTexture_5udfo"), SubResource("AtlasTexture_ctywo"), SubResource("AtlasTexture_7lfjv")],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [SubResource("AtlasTexture_trrm4"), SubResource("AtlasTexture_kslm1"), SubResource("AtlasTexture_xfv1w"), SubResource("AtlasTexture_6o570"), SubResource("AtlasTexture_8iwdk"), SubResource("AtlasTexture_5fgoc")],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1uy3"]
+size = Vector2(21, 40)
+
+[node name="GasMask" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_vlfmj")
+
+[node name="GasMaskSprite" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_mahp8")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a1uy3")
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+collision_mask = 4
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
