@@ -1,4 +1,4 @@
-class_name Enemy extends Sprite2D
+class_name Enemy extends CharacterBody2D
 
 @onready var health_bar = $Health
 var health_max: float = 100

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crstrth8cg8o7"]
+[gd_scene load_steps=8 format=3 uid="uid://crstrth8cg8o7"]
 
 [ext_resource type="Texture2D" uid="uid://cu0wkgqxc6tng" path="res://sprites/enemies/Drone.png" id="1_qj6yq"]
 [ext_resource type="Script" path="res://scripts/enemies/drone.gd" id="2_74bx8"]
@@ -6,11 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://lif5ii2d4mhp" path="res://sprites/ui/status/H-Bar-Background.png" id="4_aa8k1"]
 [ext_resource type="Texture2D" uid="uid://cfu6ron0rt6lm" path="res://sprites/ui/status/H-Bar-Filled.png" id="5_3unni"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nv7fq"]
+radius = 14.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3wv7"]
 
-[node name="Drone" type="Sprite2D"]
-texture = ExtResource("1_qj6yq")
+[node name="Drone" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("2_74bx8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qj6yq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nv7fq")
+
+[node name="Health" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -22.0
+offset_right = 25.0
+offset_bottom = 18.0
+texture_under = ExtResource("4_aa8k1")
+texture_progress = ExtResource("5_3unni")
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -20,11 +38,3 @@ script = ExtResource("3_esks3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_c3wv7")
-
-[node name="Health" type="TextureProgressBar" parent="."]
-offset_left = -15.0
-offset_top = -22.0
-offset_right = 25.0
-offset_bottom = 18.0
-texture_under = ExtResource("4_aa8k1")
-texture_progress = ExtResource("5_3unni")
