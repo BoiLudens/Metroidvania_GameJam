@@ -5,8 +5,9 @@ extends Enemy
 
 @onready var left_ray = $LeftRay
 @onready var timer = $Timer
-@onready var gas_mask_sprite = $GasMaskSprite
+@onready var biker_boss_sprite = $BikerBossSprite
 @onready var health_sprite = $Health
+
 
 const UP = Vector2.UP
 
@@ -18,10 +19,10 @@ var speed = 50.0
 var start = 50
 var stop = 0
 var moving_left = true
+var idle_count = 0
+var change_idle = 0
 
 func _physics_process(delta):
-	if health_value <= 0:
-		gas_mask_sprite.visible = false
 	move()
 	
 	if left_ray.is_colliding():
@@ -30,10 +31,19 @@ func _physics_process(delta):
 		timer.start(idle_time)
 		moving_left = !moving_left
 		scale.x = -scale.x
+		idle_count += 1
+	
 	if velocity.x != 0:
-		gas_mask_sprite.play("walk")
+		biker_boss_sprite.play("walk")
+	
+	elif  idle_count <= change_idle:
+		biker_boss_sprite.play("idle")
+		print(idle_count)
+	
 	else:
-		gas_mask_sprite.play("idle")
+		biker_boss_sprite.play("idle2")
+		
+
 
 func move():
 	velocity.y += gravity
@@ -43,7 +53,3 @@ func move():
 func _on_timer_timeout():
 	speed = start
 	move()
-
-
-func _on_death_animation_finished():
-	queue_free()
