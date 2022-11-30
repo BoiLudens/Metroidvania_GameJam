@@ -6,7 +6,7 @@ extends Enemy
 @onready var left_ray = $LeftRay
 @onready var timer = $Timer
 @onready var gas_mask_sprite = $GasMaskSprite
-@onready var health_sprite = $Health
+@onready var death = $DeathSprite
 
 const UP = Vector2.UP
 
@@ -19,9 +19,15 @@ var start = 50
 var stop = 0
 var moving_left = true
 
+func _ready():
+	set_health_bar(health_value)
+	death.visible = false
+
 func _physics_process(delta):
-	if health_value <= 0:
+	if check_death():
 		gas_mask_sprite.visible = false
+		death.visible = true
+		death.play("death")
 	move()
 	
 	if left_ray.is_colliding():
@@ -44,6 +50,5 @@ func _on_timer_timeout():
 	speed = start
 	move()
 
-
-func _on_death_animation_finished():
+func _on_death_sprite_animation_finished():
 	queue_free()

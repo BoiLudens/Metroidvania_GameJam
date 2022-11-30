@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d4bgcyt51yamp"]
+[gd_scene load_steps=30 format=3 uid="uid://d4bgcyt51yamp"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gas_mask.gd" id="1_vlfmj"]
 [ext_resource type="Texture2D" uid="uid://dt66xlynp2ts1" path="res://sprites/enemies/gas_mask/Walk.png" id="2_kiff0"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dl6o3jn7orgb0" path="res://sprites/enemies/gas_mask/Idle.png" id="3_agolq"]
 [ext_resource type="Texture2D" uid="uid://cfu6ron0rt6lm" path="res://sprites/ui/status/H-Bar-Filled.png" id="3_r70jm"]
 [ext_resource type="Script" path="res://nodes/hurt_box.gd" id="6_7i51p"]
-[ext_resource type="PackedScene" uid="uid://clb3lc1hbxau4" path="res://prefabs/enemies/Death.tscn" id="7_m4vtn"]
+[ext_resource type="Texture2D" uid="uid://ck5ghi8vldykb" path="res://sprites/enemies/death/explosion-6.png" id="7_hiyuk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1uy3"]
 size = Vector2(21, 40)
@@ -64,6 +64,46 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6dwy"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mco3t"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2ag"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjpvy"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46h0i"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s0ck"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkcu5"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uknv5"]
+atlas = ExtResource("7_hiyuk")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73l5m"]
+animations = [{
+"frames": [SubResource("AtlasTexture_f6dwy"), SubResource("AtlasTexture_mco3t"), SubResource("AtlasTexture_bu2ag"), SubResource("AtlasTexture_fjpvy"), SubResource("AtlasTexture_46h0i"), SubResource("AtlasTexture_6s0ck"), SubResource("AtlasTexture_xkcu5"), SubResource("AtlasTexture_uknv5")],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydd42"]
 
 [node name="GasMask" type="CharacterBody2D"]
@@ -76,6 +116,12 @@ shape = SubResource("RectangleShape2D_a1uy3")
 
 [node name="GasMaskSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_mahp8")
+animation = &"idle"
+
+[node name="DeathSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+frames = SubResource("SpriteFrames_73l5m")
+animation = &"death"
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -101,8 +147,5 @@ collision_mask = 4
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Death" parent="." instance=ExtResource("7_m4vtn")]
-playing = false
-
+[connection signal="animation_finished" from="DeathSprite" to="." method="_on_death_sprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="Death" to="." method="_on_death_animation_finished"]
