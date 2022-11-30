@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://gjl2ei62wgo"]
+[gd_scene load_steps=51 format=3 uid="uid://gjl2ei62wgo"]
 
 [ext_resource type="Script" path="res://scripts/enemies/boss.gd" id="1_pq62f"]
 [ext_resource type="Texture2D" uid="uid://b4j4lcr78pxvn" path="res://sprites/enemies/biker_boss/Biker_idle.png" id="2_r2gm6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://nodes/hurt_box.gd" id="5_b0bla"]
 [ext_resource type="Texture2D" uid="uid://lif5ii2d4mhp" path="res://sprites/ui/status/H-Bar-Background.png" id="6_8pvcd"]
 [ext_resource type="Texture2D" uid="uid://cfu6ron0rt6lm" path="res://sprites/ui/status/H-Bar-Filled.png" id="7_m128x"]
+[ext_resource type="Texture2D" uid="uid://ck5ghi8vldykb" path="res://sprites/enemies/death/explosion-6.png" id="9_us7f5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8c53"]
 size = Vector2(58, 105)
@@ -133,12 +134,12 @@ animations = [{
 "frames": [SubResource("AtlasTexture_hvnka"), SubResource("AtlasTexture_xr7ps"), SubResource("AtlasTexture_t82og"), SubResource("AtlasTexture_8yjn6")],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [SubResource("AtlasTexture_ok72t"), SubResource("AtlasTexture_o8tgq"), SubResource("AtlasTexture_8pjes"), SubResource("AtlasTexture_pq4wc"), SubResource("AtlasTexture_opuug"), SubResource("AtlasTexture_52nfp"), SubResource("AtlasTexture_mrapd"), SubResource("AtlasTexture_dbhcw"), SubResource("AtlasTexture_sgudt"), SubResource("AtlasTexture_7g1f6"), SubResource("AtlasTexture_t33u4"), SubResource("AtlasTexture_1jxhr"), SubResource("AtlasTexture_412mx")],
 "loop": true,
 "name": &"idle2",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [SubResource("AtlasTexture_rqnk8"), SubResource("AtlasTexture_mbi7h"), SubResource("AtlasTexture_ndtgx"), SubResource("AtlasTexture_yppud"), SubResource("AtlasTexture_6busm"), SubResource("AtlasTexture_7j631")],
 "loop": true,
@@ -149,6 +150,46 @@ animations = [{
 "loop": true,
 "name": &"walk_attack",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6dwy"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mco3t"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2ag"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjpvy"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46h0i"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s0ck"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkcu5"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uknv5"]
+atlas = ExtResource("9_us7f5")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5qyf"]
+animations = [{
+"frames": [SubResource("AtlasTexture_f6dwy"), SubResource("AtlasTexture_mco3t"), SubResource("AtlasTexture_bu2ag"), SubResource("AtlasTexture_fjpvy"), SubResource("AtlasTexture_46h0i"), SubResource("AtlasTexture_6s0ck"), SubResource("AtlasTexture_xkcu5"), SubResource("AtlasTexture_uknv5")],
+"loop": false,
+"name": &"death",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df0v2"]
@@ -164,6 +205,11 @@ shape = SubResource("RectangleShape2D_q8c53")
 scale = Vector2(3, 3)
 frames = SubResource("SpriteFrames_rn4xp")
 animation = &"idle2"
+
+[node name="DeathSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+frames = SubResource("SpriteFrames_t5qyf")
+animation = &"death"
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -190,4 +236,5 @@ collision_mask = 4
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 
+[connection signal="animation_finished" from="DeathSprite" to="." method="_on_death_sprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

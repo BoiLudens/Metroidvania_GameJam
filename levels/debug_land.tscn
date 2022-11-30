@@ -47,8 +47,8 @@ position = Vector2(76, -15)
 [node name="Checkpoint" parent="." instance=ExtResource("6_3t5gn")]
 position = Vector2(-145, -15)
 
-[node name="gas_mask" parent="." instance=ExtResource("8_hfryl")]
-position = Vector2(182, -27)
+[node name="GasMask" parent="." instance=ExtResource("8_hfryl")]
+position = Vector2(159, -27)
 
 [node name="collisions" type="Node2D" parent="."]
 
