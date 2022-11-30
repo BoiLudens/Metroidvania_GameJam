@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="10_0obce"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ds5v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -44, -114, 0, 0, 0, 0, 212, -120)
+}
+point_count = 2
 
 [node name="Debug Land" type="Node2D"]
 
@@ -73,6 +77,8 @@ collision_mask = 0
 curve = SubResource("Curve2D_1ds5v")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-44, -114)
+rotation = -0.0234328
 
 [node name="Drone" parent="Path2D/PathFollow2D" instance=ExtResource("7_5gh8q")]
 position = Vector2(41, -35)
