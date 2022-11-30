@@ -149,3 +149,4 @@ collision_mask = 4
 
 [connection signal="animation_finished" from="DeathSprite" to="." method="_on_death_sprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Death" to="." method="_on_death_animation_finished"]

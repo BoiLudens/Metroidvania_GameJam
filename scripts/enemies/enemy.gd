@@ -1,6 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
 @onready var health_bar = $Health
+@onready var death = $Death
 var health_max: float = 100
 var health_value: float = 100 
 
