@@ -1,8 +1,10 @@
 extends StaticBody2D
 
-@onready var hit_box = $HitBox
-
 @export var damage_value: int = 20
+
+@onready var hit_box = $HitBox
+@onready var hurt_box = $HurtBox
+@onready var lazer_door_sprite = $LazerDoorSprite
 
 var health_max: float = 100
 var health_value: float = 100 
@@ -11,15 +13,13 @@ var health_value: float = 100
 func _ready():
 	hit_box.damage = damage_value
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if check_death():
-		queue_free()
-
 func take_damage(damage):
 	health_value -= damage
-
+	if check_death():
+		hit_box.queue_free()
+		hurt_box.queue_free()
+		lazer_door_sprite.play("destroyed")
+		
 func check_death():
 	if (health_value <= 0):
 		return true
