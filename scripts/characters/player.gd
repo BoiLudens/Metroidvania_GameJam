@@ -24,7 +24,9 @@ signal set_health(health)
 func _ready():
 	dash_direction = Vector2(-sprite_player.scale.x, 0)
 	sprite_weapon.get_node("HitBox").set_damage(whip_damage)
+	game_manager.checkpoint = position
 	emit_signal("set_health", health)
+	
 
 
 func _physics_process(delta):
