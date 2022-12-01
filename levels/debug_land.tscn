@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://duqyacjtf46qh"]
+[gd_scene load_steps=15 format=3 uid="uid://duqyacjtf46qh"]
 
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="7_5gh8q"]
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="8_hfryl"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="9_kg4c6"]
+[ext_resource type="PackedScene" uid="uid://dogkds8djfbnh" path="res://prefabs/interactables/lazer_door.tscn" id="9_x7l3f"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="10_0obce"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_k0yy8"]
 [ext_resource type="PackedScene" path="res://prefabs/collectibles/health_collectible.tscn" id="12_2epky"]
@@ -59,6 +60,10 @@ position = Vector2(394, -53)
 
 [node name="Checkpoint" parent="Interactables" instance=ExtResource("6_3t5gn")]
 position = Vector2(-145, -15)
+
+[node name="LazerDoor" parent="Interactables" instance=ExtResource("9_x7l3f")]
+position = Vector2(41, -21)
+scale = Vector2(1.56955, 1.30909)
 
 [node name="Hazards" type="Node2D" parent="."]
 
