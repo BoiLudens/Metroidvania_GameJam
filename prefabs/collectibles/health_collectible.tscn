@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vg45p7mia5p"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://levels/health_collectible.gd" id="1_yg1oi"]
+[ext_resource type="Script" path="res://scripts/collectibles/health_collectible.gd" id="1_yg1oi"]
 [ext_resource type="Texture2D" uid="uid://b02itps2c2v75" path="res://sprites/collectibles/Health.png" id="2_poosv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ey5sr"]
