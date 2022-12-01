@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://dogkds8djfbnh"]
+
+[ext_resource type="Texture2D" uid="uid://b36w2vl5cn6cu" path="res://sprites/interactables/LazerDoor-Sheet.png" id="1_cbt4b"]
+[ext_resource type="Script" path="res://scripts/interactables/lazer_door.gd" id="1_n1qyq"]
+[ext_resource type="Script" path="res://nodes/hurt_box.gd" id="2_klhi2"]
+[ext_resource type="Script" path="res://nodes/hit_box.gd" id="3_1gtfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsxyh"]
+size = Vector2(25, 3.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgq34"]
+atlas = ExtResource("1_cbt4b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1y5t"]
+atlas = ExtResource("1_cbt4b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0w7k"]
+animations = [{
+"frames": [SubResource("AtlasTexture_tgq34")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_q1y5t")],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw1oi"]
+size = Vector2(23, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tclbs"]
+size = Vector2(23, 26)
+
+[node name="LazerDoor" type="StaticBody2D"]
+script = ExtResource("1_n1qyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -12.25)
+shape = SubResource("RectangleShape2D_rsxyh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_a0w7k")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_klhi2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_bw1oi")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_1gtfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_tclbs")
