@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var animator = $AnimationPlayer
 @onready var hurt_box = $HurtBox
 
-const SPEED = 400.0
-const JUMP_VELOCITY = -400.0
+var speed = 400.0
+var jump_velocity = -400.0
 
 #dash
 var dash_direction
@@ -37,14 +37,14 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("action_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 		can_dash = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction and !dashing:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		
 		if(velocity.x < 0):
 			sprite_player.scale.x = -1
@@ -52,7 +52,7 @@ func _physics_process(delta):
 			sprite_player.scale.x = 1
 
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 	dash()

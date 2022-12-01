@@ -42,7 +42,7 @@ script = ExtResource("1_n1qyq")
 position = Vector2(-0.5, -12.25)
 shape = SubResource("RectangleShape2D_rsxyh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="LazerDoorSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_a0w7k")
 
 [node name="HurtBox" type="Area2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://duqyacjtf46qh"]
+[gd_scene load_steps=16 format=3 uid="uid://duqyacjtf46qh"]
 
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="10_0obce"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_k0yy8"]
 [ext_resource type="PackedScene" path="res://prefabs/collectibles/health_collectible.tscn" id="12_2epky"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/sticky_floor.tscn" id="14_kagca"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ds5v"]
 _data = {
@@ -64,6 +65,9 @@ position = Vector2(-145, -15)
 [node name="LazerDoor" parent="Interactables" instance=ExtResource("9_x7l3f")]
 position = Vector2(41, -21)
 scale = Vector2(1.56955, 1.30909)
+
+[node name="StickyFloor" parent="Interactables" instance=ExtResource("14_kagca")]
+position = Vector2(-40, 0)
 
 [node name="Hazards" type="Node2D" parent="."]
 
