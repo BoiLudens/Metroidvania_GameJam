@@ -4,16 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://x4n6yny511gu" path="res://sprites/traps/Spike.png" id="2_iuxts"]
 [ext_resource type="Script" path="res://nodes/hit_box.gd" id="3_ymbwf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irxnc"]
-size = Vector2(32, 2)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxc5x"]
 size = Vector2(32, 15)
 
-[node name="SpikeSprite" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irxnc"]
+size = Vector2(32, 2)
+
+[node name="SpikeSprite" type="StaticBody2D"]
 position = Vector2(0, -16)
-texture = ExtResource("2_iuxts")
 script = ExtResource("1_ra31h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iuxts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.677)
+shape = SubResource("RectangleShape2D_vxc5x")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
@@ -23,9 +29,3 @@ script = ExtResource("3_ymbwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_irxnc")
-
-[node name="StaticBox" type="StaticBody2D" parent="."]
-position = Vector2(0, 8.677)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBox"]
-shape = SubResource("RectangleShape2D_vxc5x")

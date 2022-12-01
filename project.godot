@@ -125,6 +125,7 @@ action_attack={
 2d_physics/layer_2="Hurt"
 2d_physics/layer_3="Navigation"
 2d_physics/layer_4="Actor"
+2d_physics/layer_5="Collectible"
 
 [rendering]
 
