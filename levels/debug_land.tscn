@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://duqyacjtf46qh"]
+[gd_scene load_steps=16 format=3 uid="uid://duqyacjtf46qh"]
 
 [ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
 [ext_resource type="TileSet" uid="uid://cu1yx2r2lyef8" path="res://prefabs/tile_sets/debug_land.tres" id="3_lq1fd"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
-[ext_resource type="PackedScene" uid="uid://b6t20a2msnnpa" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
 [ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="7_5gh8q"]
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="8_hfryl"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="9_kg4c6"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="10_0obce"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_k0yy8"]
 [ext_resource type="PackedScene" path="res://prefabs/collectibles/health_collectible.tscn" id="12_2epky"]
+[ext_resource type="PackedScene" uid="uid://dogam2va8f1bi" path="res://prefabs/interactables/sticky_floor.tscn" id="14_kagca"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ds5v"]
 _data = {
@@ -64,6 +65,9 @@ position = Vector2(-145, -15)
 [node name="LazerDoor" parent="Interactables" instance=ExtResource("9_x7l3f")]
 position = Vector2(41, -21)
 scale = Vector2(1.56955, 1.30909)
+
+[node name="StickyFloor" parent="Interactables" instance=ExtResource("14_kagca")]
+position = Vector2(-40, 0)
 
 [node name="Hazards" type="Node2D" parent="."]
 
