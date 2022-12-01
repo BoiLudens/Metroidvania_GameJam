@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="9_kg4c6"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="10_0obce"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_k0yy8"]
-[ext_resource type="PackedScene" uid="uid://0vg45p7mia5p" path="res://prefabs/collectibles/health_collectible.tscn" id="12_2epky"]
+[ext_resource type="PackedScene" path="res://prefabs/collectibles/health_collectible.tscn" id="12_2epky"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ds5v"]
 _data = {
