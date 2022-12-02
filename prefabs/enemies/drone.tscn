@@ -49,4 +49,8 @@ monitorable = false
 position = Vector2(-3, -14)
 polygon = PackedVector2Array(16, 16, 101, 115, 101, -43)
 
+[node name="MovingTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="MovingTimer" to="." method="_on_moving_timer_timeout"]
