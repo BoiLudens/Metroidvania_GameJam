@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://nu7wvlkx6t1l"]
+
+[ext_resource type="Texture2D" uid="uid://d1x1rglrr4ppw" path="res://sprites/projectiles/LazerBolt.png" id="1_e6peu"]
+[ext_resource type="Script" path="res://scripts/projectiles/lazer_bolt.gd" id="1_w5pt3"]
+[ext_resource type="Script" path="res://nodes/hit_box.gd" id="2_lem3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1247m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2em2y"]
+
+[node name="LazerBolt" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_w5pt3")
+
+[node name="LazerBoltSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_e6peu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1247m")
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_lem3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_2em2y")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
