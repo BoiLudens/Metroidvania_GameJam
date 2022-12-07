@@ -72,7 +72,7 @@ position = Vector2(240, -1)
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="Spike" parent="Hazards" instance=ExtResource("4_psh6k")]
-position = Vector2(487, -14)
+position = Vector2(-92, -3)
 
 [node name="SwingBlade" parent="Hazards" instance=ExtResource("10_k0yy8")]
 position = Vector2(-145, -116)

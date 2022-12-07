@@ -1,9 +1,6 @@
 extends Enemy
 
-enum StateEnum { 
-	IDLE, 
-	MOVING, 
-	ATTACK}
+enum StateEnum { IDLE, MOVING, ATTACK }
 
 const LAZER_BOLT = preload("res://prefabs/projectiles/lazer_bolt.tscn")
 

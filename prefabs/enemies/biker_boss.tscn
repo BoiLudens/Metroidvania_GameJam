@@ -200,7 +200,7 @@ collision_mask = 5
 script = ExtResource("1_pq62f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_q8c53")
 
 [node name="BikerBossSprite" type="AnimatedSprite2D" parent="."]
@@ -232,7 +232,7 @@ texture_under = ExtResource("6_8pvcd")
 texture_progress = ExtResource("7_m128x")
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(20, 0)
+target_position = Vector2(37, 0)
 collision_mask = 4
 
 [node name="Timer" type="Timer" parent="."]
