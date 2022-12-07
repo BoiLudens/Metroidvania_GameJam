@@ -20,7 +20,7 @@ var start = 50
 var stop = 0
 var moving_left = true
 var idle_count = 0
-var change_idle = 0
+var change_idle = 2
 
 func _ready():
 	set_health_bar(health_value)
