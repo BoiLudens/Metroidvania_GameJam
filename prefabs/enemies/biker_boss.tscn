@@ -195,6 +195,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df0v2"]
 
 [node name="BikerBoss" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_pq62f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
