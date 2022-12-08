@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://scripts/projectiles/lazer_bolt.gd" id="1_w5pt3"]
 [ext_resource type="Script" path="res://nodes/hit_box.gd" id="2_lem3s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_di6b8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_advto"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pxyu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4h6k"]
 
 [node name="LazerBolt" type="RigidBody2D"]
 collision_layer = 0
@@ -18,14 +18,14 @@ script = ExtResource("1_w5pt3")
 texture = ExtResource("1_e6peu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_di6b8")
+shape = SubResource("RectangleShape2D_advto")
 
 [node name="HitBox" type="Area2D" parent="."]
 monitoring = false
 script = ExtResource("2_lem3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("RectangleShape2D_0pxyu")
+shape = SubResource("RectangleShape2D_i4h6k")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

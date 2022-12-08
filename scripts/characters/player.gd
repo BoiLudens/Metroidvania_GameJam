@@ -6,18 +6,15 @@ extends CharacterBody2D
 @onready var animator = $AnimationPlayer
 @onready var hurt_box = $HurtBox
 
+enum StateEnum { MOVING, ATTACK, DASH }
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed = 400.0
 var jump_velocity = -400.0
-
-#dash
 var dash_direction
-var can_dash = false
-var dashing = false
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health = 100
 var whip_damage = 20
+var state
 
 signal set_health(health)
 
@@ -26,60 +23,63 @@ func _ready():
 	sprite_weapon.get_node("HitBox").set_damage(whip_damage)
 	game_manager.checkpoint = position
 	emit_signal("set_health", health)
-	
-
+	state = StateEnum.MOVING
 
 func _physics_process(delta):
 	check_death()
-	if Input.is_action_just_pressed("action_attack"):
-		animator.play("Attack")
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("action_jump") and is_on_floor():
-		velocity.y = jump_velocity
-		can_dash = true
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction and !dashing:
-		velocity.x = direction * speed
 		
+	match state:
+		StateEnum.MOVING:
+			movement()
+		StateEnum.DASH:
+			dash()
+		StateEnum.ATTACK:
+			attack()
+	move_and_slide()
+
+func movement():
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = direction * speed
 		if(velocity.x < 0):
 			sprite_player.scale.x = -1
+			dash_direction = Vector2(1,0)
 		elif(velocity.x > 0):
 			sprite_player.scale.x = 1
-
+			dash_direction = Vector2(-1,0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+	if Input.is_action_just_pressed("action_attack"):
+		state = StateEnum.ATTACK
+	if Input.is_action_just_pressed("action_jump") and is_on_floor():
+		velocity.y = jump_velocity
+	if Input.is_action_just_pressed("dash"):
+		velocity.x = 0
+		state = StateEnum.DASH
 
-	move_and_slide()
-	dash()
-	
-	#dash
-func dash():
+func attack():
 	if is_on_floor():
-		can_dash = true
-	
-	if Input.is_action_pressed("move_left"):
-		dash_direction = Vector2(1,0)
-	if Input.is_action_pressed("move_right"):
-		dash_direction = Vector2(-1,0)
-		
-	if Input.is_action_just_pressed("dash") and can_dash:
-		velocity = dash_direction.normalized() * 2500
-		can_dash = false
-		dashing = true
-		await(get_tree().create_timer(0.2).timeout)
-		dashing = false
+		velocity.x = 0
+		animator.play("Attack")
+	else:
+		animator.play("Attack")
+	await(get_tree().create_timer(1).timeout)
+	state = StateEnum.MOVING
+
+func dash():
+	velocity = dash_direction.normalized() * 2500
+	await(get_tree().create_timer(.02).timeout)
+	state = StateEnum.MOVING
 
 func check_death():
 	if (health <= 0):
 		position = game_manager.checkpoint
 		health = 100
+		emit_signal("set_health", health)
 
 func take_damage(damage):
 	health -= damage
