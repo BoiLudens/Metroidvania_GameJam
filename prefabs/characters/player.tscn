@@ -133,6 +133,7 @@ position = Vector2(0, 1.199)
 shape = SubResource("CapsuleShape2D_dl216")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
 frames = SubResource("SpriteFrames_c400t")
 playing = true
 
