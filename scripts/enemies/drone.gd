@@ -34,17 +34,18 @@ func _physics_process(delta):
 			attack()
 
 func patrol(delta) :
-	if (path_follow.progress_ratio + delta) <= 1 and move_right:
-		path_follow.progress_ratio += delta
+	if move_right:
+		if (path_follow.progress_ratio + delta) <= 1:
+			path_follow.progress_ratio += delta
+		else:
+			move_right = false
+			detection_area.scale.x = -1
 	else:
-		move_right = false
-		detection_area.scale.x = -1
-		
-	if (path_follow.progress_ratio - delta) >= 0 and !move_right:
-		path_follow.progress_ratio -= delta
-	else:
-		move_right = true
-		detection_area.scale.x = 1
+		if (path_follow.progress_ratio - delta) >= 0:
+			path_follow.progress_ratio -= delta
+		else:
+			move_right = true
+			detection_area.scale.x = 1
 
 func attack():
 	var lazer_bolt = LAZER_BOLT.instantiate()

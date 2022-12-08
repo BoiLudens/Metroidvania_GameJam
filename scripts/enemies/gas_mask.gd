@@ -8,6 +8,7 @@ extends Enemy
 @onready var gas_mask_sprite = $GasMaskSprite
 @onready var death = $DeathSprite
 
+
 enum StateEnum { IDLE, MOVING, ATTACK}
 
 const UP = Vector2.UP
