@@ -28,12 +28,13 @@ var moving_left: bool = true
 
 var state: StateEnum
 var attack_state: AttackEnum
-var animation_array
-var animation_string
+var animation_array: Array[String]
+var animation_string: String
 
 func _ready():
 	set_health_bar(health_value)
 	death.visible = false
+	hit_box.damage = 10
 	animation_array = ["idle", "idle2"]
 	state = StateEnum.MOVING
 

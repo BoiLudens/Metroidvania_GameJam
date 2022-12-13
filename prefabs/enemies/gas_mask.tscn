@@ -106,8 +106,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydd42"]
+size = Vector2(20, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5beci"]
+size = Vector2(18, 39)
 
 [node name="GasMask" type="CharacterBody2D"]
 collision_layer = 8
@@ -133,6 +135,7 @@ monitorable = false
 script = ExtResource("6_7i51p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ydd42")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -143,6 +146,7 @@ monitoring = false
 script = ExtResource("6_l3qtc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_5beci")
 
 [node name="Health" type="TextureProgressBar" parent="."]

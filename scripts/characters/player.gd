@@ -1,20 +1,26 @@
 extends CharacterBody2D
 
-@onready var game_manager = %GameManager
-@onready var sprite_player = $PlayerSprite
-@onready var sprite_weapon = sprite_player.get_node("WeaponSprite")
-@onready var animator = $AnimationPlayer
-@onready var hurt_box = $HurtBox
+@onready var game_manager: Node2D = %GameManager
+
+@onready var sprite_player: AnimatedSprite2D = $PlayerSprite
+@onready var sprite_weapon: AnimatedSprite2D = sprite_player.get_node("WeaponSprite")
+
+@onready var animator: AnimationPlayer = $AnimationPlayer
+
+@onready var hurt_box: HurtBox = $HurtBox
 
 enum StateEnum { MOVING, ATTACK, DASH }
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var speed = 400.0
-var jump_velocity = -400.0
-var dash_direction
-var health = 100
-var whip_damage = 20
-var state
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var speed: float = 400.0
+var jump_velocity: float = -400.0
+
+var dash_direction: Vector2
+
+var health: int = 100
+var whip_damage: int = 20
+
+var state: StateEnum
 
 signal set_health(health)
 
