@@ -1,9 +1,6 @@
 extends Enemy
 
-enum StateEnum { 
-	IDLE, 
-	MOVING, 
-	ATTACK}
+enum StateEnum { IDLE, MOVING, ATTACK }
 
 const LAZER_BOLT = preload("res://prefabs/projectiles/lazer_bolt.tscn")
 
@@ -11,13 +8,13 @@ const LAZER_BOLT = preload("res://prefabs/projectiles/lazer_bolt.tscn")
 @export var health_value_override: float = 200
 
 @onready var path_follow: PathFollow2D = self.get_parent()
-@onready var detection_area = $DetectionArea
-@onready var moving_timer = $MovingTimer
+@onready var detection_area: Area2D = $DetectionArea
+@onready var moving_timer: Timer = $MovingTimer
 
 var move_right: bool = true
-var state
+var state: StateEnum
 var target
-var bullet_speed = 300
+var bullet_speed: int = 300
 
 func _ready():
 	state = StateEnum.MOVING
@@ -37,17 +34,18 @@ func _physics_process(delta):
 			attack()
 
 func patrol(delta) :
-	if (path_follow.progress_ratio + delta) <= 1 and move_right:
-		path_follow.progress_ratio += delta
+	if move_right:
+		if (path_follow.progress_ratio + delta) <= 1:
+			path_follow.progress_ratio += delta
+		else:
+			move_right = false
+			detection_area.scale.x = -1
 	else:
-		move_right = false
-		detection_area.scale.x = -1
-		
-	if (path_follow.progress_ratio - delta) >= 0 and !move_right:
-		path_follow.progress_ratio -= delta
-	else:
-		move_right = true
-		detection_area.scale.x = 1
+		if (path_follow.progress_ratio - delta) >= 0:
+			path_follow.progress_ratio -= delta
+		else:
+			move_right = true
+			detection_area.scale.x = 1
 
 func attack():
 	var lazer_bolt = LAZER_BOLT.instantiate()
