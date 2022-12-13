@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-@export var damage = 20
+@export var damage: int = 20
 
-@onready var hit_box = $HitBox
+@onready var hit_box: HitBox = $HitBox
 
 func _ready():
 	hit_box.damage = damage

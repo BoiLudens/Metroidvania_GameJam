@@ -22,7 +22,7 @@ enum AttackEnum { DEFAULT, DETECTED, CHASE, PUNCH }
 const UP = Vector2.UP
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var movement: Vector2 = Vector2()
 var speed: float = 50.0
@@ -30,9 +30,9 @@ var moving_left: bool = true
 
 var state: StateEnum
 var attack_state: AttackEnum
-var count = 0
+var count: int = 0
 
-var stop_chase = false
+var stop_chase: bool = false
 
 func _ready():
 	set_health_bar(health_value)
@@ -45,9 +45,7 @@ func _physics_process(delta):
 	velocity.y += gravity
 	
 	if check_death():
-		gas_mask_sprite.visible = false
-		death.visible = true
-		death.play("death")
+		die()
 	
 	match state:
 		StateEnum.IDLE:
@@ -57,15 +55,6 @@ func _physics_process(delta):
 		StateEnum.ATTACK:
 			attack()
 	move_and_slide()
-
-func move():
-	gas_mask_sprite.play("walk")
-	velocity.x = speed if moving_left else -speed
-	if left_ray.is_colliding():
-		moving_left = !moving_left
-		scale.x = -scale.x
-		state = StateEnum.IDLE
-		idle_timer.start(1)
 
 func attack():
 	if left_ray.is_colliding():
@@ -81,12 +70,25 @@ func attack():
 		AttackEnum.PUNCH:
 			state = StateEnum.MOVING
 
+func move():
+	gas_mask_sprite.play("walk")
+	velocity.x = speed if moving_left else -speed
+	if left_ray.is_colliding():
+		moving_left = !moving_left
+		scale.x = -scale.x
+		state = StateEnum.IDLE
+		idle_timer.start(1)
+
 func detect(body):
 	if body.name == 'Player':
 		state = StateEnum.ATTACK
 		attack_state = AttackEnum.DETECTED
-		detection_area.get_node("CollisionPolygon2D")
 		detect_timer.start(1)
+
+func die():
+	gas_mask_sprite.visible = false
+	death.visible = true
+	death.play("death")
 
 func _on_death_sprite_animation_finished():
 	queue_free()

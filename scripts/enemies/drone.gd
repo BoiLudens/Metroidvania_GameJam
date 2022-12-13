@@ -8,13 +8,13 @@ const LAZER_BOLT = preload("res://prefabs/projectiles/lazer_bolt.tscn")
 @export var health_value_override: float = 200
 
 @onready var path_follow: PathFollow2D = self.get_parent()
-@onready var detection_area = $DetectionArea
-@onready var moving_timer = $MovingTimer
+@onready var detection_area: Area2D = $DetectionArea
+@onready var moving_timer: Timer = $MovingTimer
 
 var move_right: bool = true
-var state
+var state: StateEnum
 var target
-var bullet_speed = 300
+var bullet_speed: int = 300
 
 func _ready():
 	state = StateEnum.MOVING

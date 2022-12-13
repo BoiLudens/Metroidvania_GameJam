@@ -1,7 +1,7 @@
 extends Area2D
 
-var stored_speed
-var stored_jump_velocity
+var stored_speed: float
+var stored_jump_velocity: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
