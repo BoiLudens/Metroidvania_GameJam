@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://nodes/hit_box.gd" id="3_ymbwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxc5x"]
-size = Vector2(32, 15)
+size = Vector2(32, 15.177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irxnc"]
-size = Vector2(32, 2)
+size = Vector2(32, 4)
 
 [node name="SpikeSprite" type="StaticBody2D"]
 position = Vector2(0, -16)
@@ -18,7 +18,7 @@ script = ExtResource("1_ra31h")
 texture = ExtResource("2_iuxts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8.677)
+position = Vector2(0, 8.5885)
 shape = SubResource("RectangleShape2D_vxc5x")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -28,4 +28,5 @@ monitoring = false
 script = ExtResource("3_ymbwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_irxnc")

@@ -44,7 +44,7 @@ GlobalAudioStreamPlayer="*res://sounds/scene/audio_stream_player.tscn"
 
 [display]
 
-window/stretch/scale=2.0
+window/stretch/scale=3.0
 
 [input]
 
@@ -142,4 +142,5 @@ Door={
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 textures/canvas_textures/default_texture_filter=0
