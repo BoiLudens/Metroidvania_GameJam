@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brre6f3cwa41n"]
+[gd_scene load_steps=22 format=3 uid="uid://brre6f3cwa41n"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_lt4bi"]
 [ext_resource type="Texture2D" uid="uid://d1ng8pigmggtg" path="res://sprites/characters/punk/Punk_idle.png" id="1_y0ooo"]
@@ -118,9 +118,13 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_ure4c"]
+resource_name = "Default"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j317h"]
 _data = {
-"Attack": SubResource("Animation_n5fkk")
+"Attack": SubResource("Animation_n5fkk"),
+"Default": SubResource("Animation_ure4c")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -139,7 +143,6 @@ playing = true
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="PlayerSprite"]
 frames = SubResource("SpriteFrames_b36h8")
-animation = &"whip"
 offset = Vector2(31.152, -0.879)
 
 [node name="HitBox" type="Area2D" parent="PlayerSprite/WeaponSprite"]
