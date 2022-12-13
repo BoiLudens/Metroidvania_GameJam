@@ -2,9 +2,9 @@ extends StaticBody2D
 
 @export var damage_value: int = 20
 
-@onready var hit_box = $HitBox
-@onready var hurt_box = $HurtBox
-@onready var lazer_door_sprite = $LazerDoorSprite
+@onready var hit_box: HitBox = $HitBox
+@onready var hurt_box: HurtBox = $HurtBox
+@onready var lazer_door_sprite: AnimatedSprite2D = $LazerDoorSprite
 
 var health_max: float = 100
 var health_value: float = 100 

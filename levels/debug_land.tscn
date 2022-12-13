@@ -48,7 +48,7 @@ current = true
 remote_path = NodePath("../../../Camera2D")
 
 [node name="GasMask" parent="Actors" instance=ExtResource("8_hfryl")]
-position = Vector2(160, -22)
+position = Vector2(160, -67)
 
 [node name="BikerBoss" parent="Actors" instance=ExtResource("10_0obce")]
 position = Vector2(394, -53)
@@ -72,7 +72,7 @@ position = Vector2(240, -1)
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="Spike" parent="Hazards" instance=ExtResource("4_psh6k")]
-position = Vector2(487, -14)
+position = Vector2(-92, -3)
 
 [node name="SwingBlade" parent="Hazards" instance=ExtResource("10_k0yy8")]
 position = Vector2(-145, -116)
@@ -104,7 +104,6 @@ curve = SubResource("Curve2D_1ds5v")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-44, -114)
-rotation = -0.0234328
 
 [node name="Drone" parent="Path2D/PathFollow2D" instance=ExtResource("7_5gh8q")]
 position = Vector2(41, -35)
