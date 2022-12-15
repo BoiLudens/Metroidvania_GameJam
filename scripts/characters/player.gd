@@ -90,8 +90,6 @@ func attack():
 	sprite_player.play("attack")
 	if is_on_floor():
 		velocity.x = 0
-	if attack_timer.time_left == 0:
-		attack_timer.start(1)
 	
 
 func dash():
