@@ -11,4 +11,3 @@ func _init() -> void:
 func set_damage(new_damage):
 	damage = new_damage
 	
-
