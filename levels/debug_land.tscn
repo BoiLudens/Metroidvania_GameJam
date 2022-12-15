@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://duqyacjtf46qh"]
+[gd_scene load_steps=16 format=3 uid="uid://d3dgtginu635g"]
 
-[ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_f3n6p"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="1_oc4k2"]
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="2_woqcb"]
 [ext_resource type="TileSet" uid="uid://cu1yx2r2lyef8" path="res://prefabs/tile_sets/debug_land.tres" id="3_lq1fd"]
+[ext_resource type="PackedScene" uid="uid://dwksyqtariv1q" path="res://prefabs/ui/hud/hud.tscn" id="3_urivt"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="4_psh6k"]
 [ext_resource type="PackedScene" path="res://prefabs/interactables/checkpoint.tscn" id="6_3t5gn"]
 [ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="7_5gh8q"]
@@ -32,9 +32,7 @@ layer_0/tile_data = PackedInt32Array(65533, 851969, 4, 65534, 851969, 4, 65535, 
 unique_name_in_owner = true
 script = ExtResource("1_oc4k2")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Health Bar" parent="CanvasLayer" instance=ExtResource("1_f3n6p")]
+[node name="HUD" parent="." instance=ExtResource("3_urivt")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -18.483)
@@ -42,7 +40,8 @@ current = true
 
 [node name="Actors" type="Node2D" parent="."]
 
-[node name="Player" parent="Actors" instance=ExtResource("2_woqcb")]
+[node name="Player" parent="Actors" groups=["players"] instance=ExtResource("2_woqcb")]
+unique_name_in_owner = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Actors/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -109,5 +108,4 @@ rotation = -0.0234328
 [node name="Drone" parent="Path2D/PathFollow2D" instance=ExtResource("7_5gh8q")]
 position = Vector2(41, -35)
 
-[connection signal="set_health" from="Actors/Player" to="CanvasLayer/Health Bar" method="_on_player_set_health"]
 [connection signal="set_checkpoint" from="Interactables/Checkpoint" to="GameManager" method="_on_checkpoint_set_checkpoint"]
