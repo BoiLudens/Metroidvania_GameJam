@@ -1,0 +1,55 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtqbtyw5d6w8t"]
+
+[ext_resource type="Texture2D" uid="uid://blfo4o0iyk14e" path="res://sprites/characters/NPC/6/Special.png" id="1_lli8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlr27"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2jpr"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2eba"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_522w7"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t3ws"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g2s1"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rux1x"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tg7p"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a68u2"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdiwj"]
+atlas = ExtResource("1_lli8y")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rh2bv"]
+animations = [{
+"frames": [SubResource("AtlasTexture_tlr27"), SubResource("AtlasTexture_y2jpr"), SubResource("AtlasTexture_f2eba"), SubResource("AtlasTexture_522w7"), SubResource("AtlasTexture_5t3ws"), SubResource("AtlasTexture_7g2s1"), SubResource("AtlasTexture_rux1x"), SubResource("AtlasTexture_7tg7p"), SubResource("AtlasTexture_a68u2"), SubResource("AtlasTexture_jdiwj")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="dancing3" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_rh2bv")
+playing = true

@@ -1365,16 +1365,16 @@ metadata/_edit_group_ = true
 position = Vector2(523, -24)
 
 [node name="SwingBlade" parent="Hazards" instance=ExtResource("9_2xhas")]
-position = Vector2(-207, -221)
+position = Vector2(-207, -230)
 
 [node name="SwingBlade2" parent="Hazards" instance=ExtResource("9_2xhas")]
-position = Vector2(229, -221)
+position = Vector2(231, -230)
 
 [node name="SwingBlade3" parent="Hazards" instance=ExtResource("9_2xhas")]
-position = Vector2(72, -221)
+position = Vector2(72, -230)
 
 [node name="SwingBlade4" parent="Hazards" instance=ExtResource("9_2xhas")]
-position = Vector2(-71, -221)
+position = Vector2(-71, -230)
 
 [node name="Collisions" type="Node2D" parent="."]
 position = Vector2(110, -263)

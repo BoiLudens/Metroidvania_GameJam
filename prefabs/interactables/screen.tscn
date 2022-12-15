@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dem7q12xs3bn0"]
+
+[ext_resource type="Texture2D" uid="uid://cd1husqwcfnqu" path="res://sprites/terrain/industrial/Screen2.png" id="1_5caa7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly137"]
+atlas = ExtResource("1_5caa7")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tglef"]
+atlas = ExtResource("1_5caa7")
+region = Rect2(32, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu1iy"]
+atlas = ExtResource("1_5caa7")
+region = Rect2(64, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue32c"]
+atlas = ExtResource("1_5caa7")
+region = Rect2(96, 0, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_od1j4"]
+animations = [{
+"frames": [SubResource("AtlasTexture_ly137"), SubResource("AtlasTexture_tglef"), SubResource("AtlasTexture_wu1iy"), SubResource("AtlasTexture_ue32c")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="screen" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_od1j4")
+playing = true
+flip_h = true

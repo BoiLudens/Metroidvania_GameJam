@@ -1,0 +1,62 @@
+[gd_scene load_steps=14 format=3 uid="uid://coyh4vg1qp4qe"]
+
+[ext_resource type="Texture2D" uid="uid://cswbnj58hjcww" path="res://sprites/characters/NPC/9/Idle.png" id="1_hqtxf"]
+[ext_resource type="Texture2D" uid="uid://bdmek7yuq4nva" path="res://sprites/characters/NPC/9/Walk.png" id="2_khbnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc1hn"]
+atlas = ExtResource("1_hqtxf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56fg2"]
+atlas = ExtResource("1_hqtxf")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qafsp"]
+atlas = ExtResource("1_hqtxf")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mughi"]
+atlas = ExtResource("1_hqtxf")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlfqt"]
+atlas = ExtResource("2_khbnq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dydlo"]
+atlas = ExtResource("2_khbnq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8x0w"]
+atlas = ExtResource("2_khbnq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph4iy"]
+atlas = ExtResource("2_khbnq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rli1"]
+atlas = ExtResource("2_khbnq")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yapcy"]
+atlas = ExtResource("2_khbnq")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1klms"]
+animations = [{
+"frames": [SubResource("AtlasTexture_lc1hn"), SubResource("AtlasTexture_56fg2"), SubResource("AtlasTexture_qafsp"), SubResource("AtlasTexture_mughi")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_jlfqt"), SubResource("AtlasTexture_dydlo"), SubResource("AtlasTexture_e8x0w"), SubResource("AtlasTexture_ph4iy"), SubResource("AtlasTexture_1rli1"), SubResource("AtlasTexture_yapcy")],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="pigtails" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_1klms")
+animation = &"walk"
+playing = true

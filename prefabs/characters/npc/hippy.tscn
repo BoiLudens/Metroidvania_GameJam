@@ -1,0 +1,56 @@
+[gd_scene load_steps=14 format=3 uid="uid://bkjjtpfxhqs0w"]
+
+[ext_resource type="Texture2D" uid="uid://cgw5a5dvhlwkb" path="res://sprites/characters/NPC/7/Special.png" id="1_63pyk"]
+[ext_resource type="Texture2D" uid="uid://b161le1po8kkp" path="res://sprites/characters/NPC/7/Idle.png" id="2_nuwpm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1al3"]
+atlas = ExtResource("1_63pyk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fos5j"]
+atlas = ExtResource("1_63pyk")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n61lm"]
+atlas = ExtResource("1_63pyk")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o2wq"]
+atlas = ExtResource("1_63pyk")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao7dq"]
+atlas = ExtResource("1_63pyk")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odvth"]
+atlas = ExtResource("1_63pyk")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj1dt"]
+atlas = ExtResource("2_nuwpm")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijlow"]
+atlas = ExtResource("2_nuwpm")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiktb"]
+atlas = ExtResource("2_nuwpm")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py5dw"]
+atlas = ExtResource("2_nuwpm")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jk468"]
+animations = [{
+"frames": [SubResource("AtlasTexture_x1al3"), SubResource("AtlasTexture_fos5j"), SubResource("AtlasTexture_n61lm"), SubResource("AtlasTexture_3o2wq"), SubResource("AtlasTexture_ao7dq"), SubResource("AtlasTexture_odvth"), SubResource("AtlasTexture_yj1dt"), SubResource("AtlasTexture_ijlow"), SubResource("AtlasTexture_hiktb"), SubResource("AtlasTexture_py5dw")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="hippy" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_jk468")
+playing = true

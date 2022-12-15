@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccm3e8wtp8rx0"]
+
+[ext_resource type="Texture2D" uid="uid://bh4opl0rjs161" path="res://sprites/terrain/Green Zone/4 Animated objects/Card.png" id="1_kc5rs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7d1h"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5umwx"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpob1"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdq81"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3y4b"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voktn"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1mum"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryxhj"]
+atlas = ExtResource("1_kc5rs")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bp5n4"]
+animations = [{
+"frames": [SubResource("AtlasTexture_n7d1h"), SubResource("AtlasTexture_5umwx"), SubResource("AtlasTexture_kpob1"), SubResource("AtlasTexture_qdq81"), SubResource("AtlasTexture_u3y4b"), SubResource("AtlasTexture_voktn"), SubResource("AtlasTexture_p1mum"), SubResource("AtlasTexture_ryxhj")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="keycard" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_bp5n4")
+playing = true

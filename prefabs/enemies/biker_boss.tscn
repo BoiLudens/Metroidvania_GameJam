@@ -211,7 +211,7 @@ shape = SubResource("RectangleShape2D_q8c53")
 [node name="BikerBossSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 frames = SubResource("SpriteFrames_rn4xp")
-animation = &"idle2"
+animation = &"New Anim"
 
 [node name="DeathSprite" type="AnimatedSprite2D" parent="."]
 visible = false

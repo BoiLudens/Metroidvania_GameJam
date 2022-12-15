@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://cprwbpgaa0d5m"]
+
+[ext_resource type="Texture2D" uid="uid://ehlcg8okqra6" path="res://sprites/terrain/industrial/Entry.png" id="1_cqtfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n38cw"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb3lj"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_karse"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxbhe"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr3s2"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjip0"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnof1"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy3k7"]
+atlas = ExtResource("1_cqtfa")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oq0q0"]
+animations = [{
+"frames": [SubResource("AtlasTexture_n38cw"), SubResource("AtlasTexture_qb3lj"), SubResource("AtlasTexture_karse"), SubResource("AtlasTexture_gxbhe"), SubResource("AtlasTexture_lr3s2"), SubResource("AtlasTexture_tjip0"), SubResource("AtlasTexture_lnof1"), SubResource("AtlasTexture_dy3k7")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="door" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_oq0q0")
+playing = true
