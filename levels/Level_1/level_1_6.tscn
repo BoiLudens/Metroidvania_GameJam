@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3ugd837fsrs"]
+[gd_scene load_steps=14 format=3 uid="uid://b3ugd837fsrs"]
 
 [ext_resource type="Texture2D" uid="uid://f03ojgkykbfm" path="res://sprites/terrain/Green Zone/tilemap/Tiles.png" id="1_hjmub"]
 [ext_resource type="Texture2D" uid="uid://dhysgvakmj16i" path="res://sprites/terrain/Green Zone/objects/Leaf/Untitled.png" id="2_8ysgp"]
@@ -6,12 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="4_g0426"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="5_ausef"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="6_x4x1i"]
-[ext_resource type="Script" path="res://scripts/next_area.gd" id="7_aegh3"]
-[ext_resource type="Texture2D" uid="uid://m4wmhmn1ilup" path="res://sprites/terrain/portal.png" id="8_b1w62"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="9_xhird"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_5rjr5"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="11_phd44"]
-[ext_resource type="PackedScene" uid="uid://dogam2va8f1bi" path="res://prefabs/interactables/sticky_floor.tscn" id="14_tiivj"]
+[ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="11_vv44u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lg8l"]
 texture = ExtResource("1_hjmub")
@@ -1567,9 +1565,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4lg8l")
 sources/12 = SubResource("TileSetAtlasSource_0edp6")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_twsgm"]
-size = Vector2(27.75, 21.5)
-
 [node name="Level_1_6" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1606,36 +1601,6 @@ limit_top = -400
 limit_right = 400
 limit_bottom = 80
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(192, -705)
-collision_mask = 8
-script = ExtResource("7_aegh3")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("8_b1w62")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_twsgm")
-metadata/_edit_group_ = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(338, 97)
-collision_mask = 8
-script = ExtResource("7_aegh3")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D2"]
-texture = ExtResource("8_b1w62")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_twsgm")
-metadata/_edit_group_ = true
-
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="Spike" parent="Hazards" instance=ExtResource("9_xhird")]
@@ -1657,40 +1622,7 @@ position = Vector2(-602, 321)
 collision_layer = 4
 collision_mask = 0
 
-[node name="Interactables" type="Node2D" parent="."]
-
-[node name="StickyFloor" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(37, -319)
-
-[node name="StickyFloor6" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(37, -319)
-
-[node name="StickyFloor7" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(-117, -319)
-
-[node name="StickyFloor8" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(-86, -319)
-
-[node name="StickyFloor9" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(-56, -319)
-
-[node name="StickyFloor10" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(-25, -319)
-
-[node name="StickyFloor11" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(6, -319)
-
-[node name="StickyFloor2" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(68, -319)
-
-[node name="StickyFloor3" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(99, -319)
-
-[node name="StickyFloor4" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(130, -319)
-
-[node name="StickyFloor5" parent="Interactables" instance=ExtResource("14_tiivj")]
-position = Vector2(161, -319)
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[node name="Portal" parent="." instance=ExtResource("11_vv44u")]
+position = Vector2(415, 34)
+level_folder = "Level_1"
+level_select = "level_1_3"

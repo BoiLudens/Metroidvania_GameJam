@@ -1,21 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd3p60faan5il"]
+[gd_scene load_steps=13 format=3 uid="uid://cd3p60faan5il"]
 
 [ext_resource type="TileSet" uid="uid://d2nyxqhw4bdiu" path="res://levels/level.tres" id="1_vtmq8"]
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="2_7pspd"]
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="3_jpnrg"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="4_gqukb"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="5_56su4"]
-[ext_resource type="Script" path="res://scripts/next_area.gd" id="6_8q0xw"]
-[ext_resource type="Texture2D" uid="uid://m4wmhmn1ilup" path="res://sprites/terrain/portal.png" id="7_hmui7"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="8_yt6cd"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="9_odvna"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="10_2n25j"]
 [ext_resource type="PackedScene" uid="uid://df6mlqiwaiet5" path="res://prefabs/interactables/fountain.tscn" id="11_p8k5d"]
+[ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="12_dk7l1"]
 [ext_resource type="Texture2D" uid="uid://b04ncpfm4cche" path="res://sprites/terrain/Green Zone/objects/Benches/1.png" id="12_sssie"]
 [ext_resource type="Texture2D" uid="uid://5sww58e8f0mt" path="res://sprites/terrain/Green Zone/objects/Benches/2.png" id="13_2pudc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l65ek"]
-size = Vector2(27.75, 21.5)
 
 [node name="Level_1_10" type="Node2D"]
 
@@ -56,36 +52,6 @@ current = true
 limit_left = -600
 limit_right = 600
 limit_bottom = 80
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1068, -658)
-collision_mask = 8
-script = ExtResource("6_8q0xw")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("7_hmui7")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_l65ek")
-metadata/_edit_group_ = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1077, -722)
-collision_mask = 8
-script = ExtResource("6_8q0xw")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D2"]
-texture = ExtResource("7_hmui7")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_l65ek")
-metadata/_edit_group_ = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
@@ -170,5 +136,12 @@ texture = ExtResource("12_sssie")
 position = Vector2(118, -1)
 texture = ExtResource("13_2pudc")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[node name="Portal" parent="." instance=ExtResource("12_dk7l1")]
+position = Vector2(-407, -19)
+level_folder = "Level_1"
+level_select = "level_1_9"
+
+[node name="Portal2" parent="." instance=ExtResource("12_dk7l1")]
+position = Vector2(-569, -594)
+level_folder = "Level_1"
+level_select = "level_1_11"

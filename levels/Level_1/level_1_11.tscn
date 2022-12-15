@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://lnclu0p1ehdj"]
+[gd_scene load_steps=18 format=3 uid="uid://lnclu0p1ehdj"]
 
 [ext_resource type="TileSet" uid="uid://d2nyxqhw4bdiu" path="res://levels/level.tres" id="1_8ydym"]
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="3_ibsgk"]
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="4_5vfpw"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="5_y4f7o"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="6_ltqn0"]
-[ext_resource type="Script" path="res://scripts/next_area.gd" id="7_wyt3m"]
-[ext_resource type="Texture2D" uid="uid://m4wmhmn1ilup" path="res://sprites/terrain/portal.png" id="8_7udvx"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="9_o4tb5"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_35eoh"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="11_np4r0"]
@@ -16,11 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://dem7q12xs3bn0" path="res://prefabs/interactables/screen.tscn" id="15_2qoba"]
 [ext_resource type="PackedScene" uid="uid://dlakwwd2bngb2" path="res://prefabs/characters/npc/smoking.tscn" id="15_ur3ih"]
 [ext_resource type="PackedScene" uid="uid://cprwbpgaa0d5m" path="res://prefabs/interactables/door.tscn" id="16_fy772"]
+[ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="17_f8v8w"]
 [ext_resource type="Texture2D" uid="uid://d3itqh0x3paen" path="res://sprites/terrain/industrial/ads/2 Billboard/64x64_2.png" id="17_ovvse"]
 [ext_resource type="Texture2D" uid="uid://bxqd3gauq6top" path="res://sprites/terrain/industrial/ads/1 Ad/64x64/13.png" id="18_kcwst"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0cnm"]
-size = Vector2(27.75, 21.5)
 
 [node name="Level_1_11" type="Node2D"]
 
@@ -34,7 +30,7 @@ layer_0/tile_data = PackedInt32Array(65532, 65536, 0, 131068, 65536, 1, 65534, 1
 [node name="Actors" type="Node2D" parent="Node2D"]
 
 [node name="Player" parent="Node2D/Actors" instance=ExtResource("3_ibsgk")]
-position = Vector2(150, -22)
+position = Vector2(133, -19)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Actors/Player"]
 remote_path = NodePath("../../../../Camera2D")
@@ -56,41 +52,11 @@ unique_name_in_owner = true
 script = ExtResource("6_ltqn0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(150, -22)
+position = Vector2(133, -19)
 current = true
 limit_left = -600
 limit_right = 600
 limit_bottom = 80
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1068, -658)
-collision_mask = 8
-script = ExtResource("7_wyt3m")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("8_7udvx")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_g0cnm")
-metadata/_edit_group_ = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1077, -722)
-collision_mask = 8
-script = ExtResource("7_wyt3m")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D2"]
-texture = ExtResource("8_7udvx")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_g0cnm")
-metadata/_edit_group_ = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
@@ -172,5 +138,12 @@ position = Vector2(0, -10)
 texture = ExtResource("18_kcwst")
 metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[node name="Portal" parent="." instance=ExtResource("17_f8v8w")]
+position = Vector2(175, -14)
+level_folder = "Level_1"
+level_select = "level_1_10"
+
+[node name="Portal2" parent="." instance=ExtResource("17_f8v8w")]
+position = Vector2(-431, -17)
+level_folder = "Level_2"
+level_select = "level_2_1"

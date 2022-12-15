@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://te4yvb42iydf"]
+[gd_scene load_steps=22 format=3 uid="uid://te4yvb42iydf"]
 
 [ext_resource type="Texture2D" uid="uid://f03ojgkykbfm" path="res://sprites/terrain/Green Zone/tilemap/Tiles.png" id="1_c620j"]
 [ext_resource type="Texture2D" uid="uid://2sqm8vnoyk4y" path="res://sprites/terrain/industrial/Tiles.png" id="2_vwg2r"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="4_b2s2l"]
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="5_n2hnk"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="6_n5q5o"]
-[ext_resource type="Script" path="res://scripts/next_area.gd" id="7_iqdw2"]
-[ext_resource type="Texture2D" uid="uid://m4wmhmn1ilup" path="res://sprites/terrain/portal.png" id="8_6k111"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="9_1i8hn"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_in6vj"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="11_opo4q"]
@@ -18,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cprwbpgaa0d5m" path="res://prefabs/interactables/door.tscn" id="16_hqwxv"]
 [ext_resource type="Texture2D" uid="uid://yi57wu0dok1i" path="res://sprites/terrain/industrial/ads/2 Billboard/128x64.png" id="17_tc04j"]
 [ext_resource type="Texture2D" uid="uid://bvv6syp82sw0f" path="res://sprites/terrain/industrial/ads/1 Ad/128x64/15.png" id="18_5clo0"]
+[ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="18_k0tgw"]
 [ext_resource type="PackedScene" uid="uid://dj31n2vuxecs3" path="res://prefabs/characters/npc/red_dress.tscn" id="19_k2ngr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lg8l"]
@@ -2448,9 +2447,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4lg8l")
 sources/2 = SubResource("TileSetAtlasSource_8hsbi")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4n8"]
-size = Vector2(27.75, 21.5)
-
 [node name="Level_2_1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2490,36 +2486,6 @@ current = true
 limit_left = -600
 limit_right = 600
 limit_bottom = 80
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1068, -658)
-collision_mask = 8
-script = ExtResource("7_iqdw2")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("8_6k111")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_ei4n8")
-metadata/_edit_group_ = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1077, -722)
-collision_mask = 8
-script = ExtResource("7_iqdw2")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D2"]
-texture = ExtResource("8_6k111")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_ei4n8")
-metadata/_edit_group_ = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
@@ -2608,5 +2574,12 @@ flip_h = false
 [node name="red_dress" parent="polish" instance=ExtResource("19_k2ngr")]
 position = Vector2(-452, -14)
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[node name="Portal2" parent="." instance=ExtResource("18_k0tgw")]
+position = Vector2(143, -16)
+level_folder = "Level_1"
+level_select = "level_1_11"
+
+[node name="Portal3" parent="." instance=ExtResource("18_k0tgw")]
+position = Vector2(-469, -16)
+level_folder = "Level_2"
+level_select = "level_2_2"

@@ -103,6 +103,7 @@ curve = SubResource("Curve2D_1ds5v")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-44, -114)
+rotation = -0.0234328
 
 [node name="Drone" parent="Path2D/PathFollow2D" instance=ExtResource("7_5gh8q")]
 position = Vector2(41, -35)
