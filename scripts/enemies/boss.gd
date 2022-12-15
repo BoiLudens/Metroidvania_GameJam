@@ -1,7 +1,9 @@
-extends Enemy
+extends CharacterBody2D
 
 @export var starting_direction : Vector2 = Vector2(0,1)
 @export var idle_time : float = 3
+@export var health_max: float = 100
+@export var health_value: float = 100 
 
 @onready var idle_timer: Timer = $Timers/IdleTimer
 @onready var detect_timer: Timer = $Timers/DetectTimer
@@ -11,6 +13,7 @@ extends Enemy
 
 @onready var biker_boss_sprite: AnimatedSprite2D = $BikerBossSprite
 @onready var death: AnimatedSprite2D = $DeathSprite
+@onready var health_bar = $Health
 
 @onready var hit_box: HitBox = $HitBox
 
@@ -30,6 +33,8 @@ var state: StateEnum
 var attack_state: AttackEnum
 var animation_array: Array[String]
 var animation_string: String
+
+
 
 func _ready():
 	set_health_bar(health_value)
@@ -87,6 +92,17 @@ func die():
 	biker_boss_sprite.visible = false
 	death.visible = true
 	death.play("death")
+
+func take_damage(damage):
+	health_value -= damage
+	set_health_bar(health_value)
+		
+func check_death():
+	if (health_value <= 0):
+		return true
+
+func set_health_bar(health):
+	health_bar.value = health_value/health_max * 100
 
 func _on_death_sprite_animation_finished():
 	queue_free()
