@@ -25,6 +25,7 @@ drag_horizontal_enabled = true
 [node name="Actors" type="Node2D" parent="."]
 
 [node name="Player" parent="Actors" instance=ExtResource("2_dshyj")]
+unique_name_in_owner = true
 position = Vector2(-367, -18)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Actors/Player"]

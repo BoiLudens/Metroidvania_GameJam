@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c3haexifv2toh"]
+[gd_scene load_steps=32 format=3 uid="uid://c3haexifv2toh"]
 
 [ext_resource type="Texture2D" uid="uid://f03ojgkykbfm" path="res://sprites/terrain/Green Zone/tilemap/Tiles.png" id="1_gbxrc"]
 [ext_resource type="Texture2D" uid="uid://2sqm8vnoyk4y" path="res://sprites/terrain/industrial/Tiles.png" id="2_3jevj"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="5_5tgo2"]
 [ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="6_gby0k"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="6_yxi1b"]
-[ext_resource type="Script" path="res://scripts/next_area.gd" id="7_s4vwx"]
-[ext_resource type="Texture2D" uid="uid://m4wmhmn1ilup" path="res://sprites/terrain/portal.png" id="8_ai4e3"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="9_guhmm"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_s27jm"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="11_3t7bh"]
@@ -27,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bwtrgafyd41tg" path="res://sprites/terrain/industrial/ads/1 Ad/22x40/11.png" id="24_1aruy"]
 [ext_resource type="Texture2D" uid="uid://8vp3o8uh2k7p" path="res://sprites/terrain/industrial/ads/1 Ad/22x40/12.png" id="25_xvcmc"]
 [ext_resource type="Texture2D" uid="uid://ckeydklulv8s4" path="res://sprites/terrain/industrial/ads/1 Ad/128x64/13.png" id="26_duwfd"]
+[ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="27_hmvxl"]
 [ext_resource type="PackedScene" uid="uid://bkjjtpfxhqs0w" path="res://prefabs/characters/npc/hippy.tscn" id="27_n8lrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lg8l"]
@@ -2463,9 +2462,6 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq5ol"]
-size = Vector2(27.75, 21.5)
-
 [node name="level_2_2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2519,36 +2515,6 @@ current = true
 limit_left = -600
 limit_right = 600
 limit_bottom = 80
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1068, -658)
-collision_mask = 8
-script = ExtResource("7_s4vwx")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("8_ai4e3")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_wq5ol")
-metadata/_edit_group_ = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1077, -722)
-collision_mask = 8
-script = ExtResource("7_s4vwx")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D2"]
-texture = ExtResource("8_ai4e3")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_wq5ol")
-metadata/_edit_group_ = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
@@ -2710,5 +2676,22 @@ metadata/_edit_group_ = true
 [node name="hippy" parent="polish" instance=ExtResource("27_n8lrf")]
 position = Vector2(-401, -142)
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[node name="Portal2" parent="." instance=ExtResource("27_hmvxl")]
+position = Vector2(-467, -19)
+level_folder = "Level_2"
+level_select = "level_2_3"
+
+[node name="Portal3" parent="." instance=ExtResource("27_hmvxl")]
+position = Vector2(-466, -911)
+level_folder = "Level_2"
+level_select = "level_2_5"
+
+[node name="Portal4" parent="." instance=ExtResource("27_hmvxl")]
+position = Vector2(150, -914)
+level_folder = "Level_2"
+level_select = "level_2_4"
+
+[node name="Portal5" parent="." instance=ExtResource("27_hmvxl")]
+position = Vector2(144, -14)
+level_folder = "Level_2"
+level_select = "level_2_1"

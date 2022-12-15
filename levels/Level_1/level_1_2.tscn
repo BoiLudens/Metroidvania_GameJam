@@ -1234,6 +1234,7 @@ layer_0/tile_data = PackedInt32Array(65535, 262144, 0, 131071, 262144, 1, 0, 655
 [node name="Actors" type="Node2D" parent="Node2D"]
 
 [node name="Player" parent="Node2D/Actors" instance=ExtResource("2_ioo05")]
+unique_name_in_owner = true
 position = Vector2(-343, -18)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Actors/Player"]

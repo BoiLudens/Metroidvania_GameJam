@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4ekt8iav1dq4"]
+[gd_scene load_steps=13 format=3 uid="uid://4ekt8iav1dq4"]
 
 [ext_resource type="TileSet" uid="uid://d2nyxqhw4bdiu" path="res://levels/level.tres" id="1_4el7c"]
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="3_4ousd"]
@@ -7,12 +7,13 @@
 [ext_resource type="Script" path="res://scripts/next_area.gd" id="6_u7cq2"]
 [ext_resource type="Texture2D" uid="uid://m4wmhmn1ilup" path="res://sprites/terrain/portal.png" id="7_menq7"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="8_4i0ar"]
+[ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="9_aqt02"]
 [ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="9_awhli"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="10_5vb2f"]
 [ext_resource type="Texture2D" uid="uid://crkmytkhuq7mm" path="res://sprites/background/4 Examples/4Shortway.png" id="14_32vfm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4tao"]
-size = Vector2(27.75, 21.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pboe"]
+size = Vector2(409, 21.5)
 
 [node name="level_2_9" type="Node2D"]
 
@@ -46,36 +47,6 @@ limit_left = -600
 limit_right = 600
 limit_bottom = 80
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1068, -658)
-collision_mask = 8
-script = ExtResource("6_u7cq2")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("7_menq7")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_u4tao")
-metadata/_edit_group_ = true
-
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1077, -722)
-collision_mask = 8
-script = ExtResource("6_u7cq2")
-metadata/_edit_group_ = true
-
-[node name="Portal" type="Sprite2D" parent="Area2D2"]
-texture = ExtResource("7_menq7")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_u4tao")
-metadata/_edit_group_ = true
-
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="Spike" parent="Hazards" instance=ExtResource("8_4i0ar")]
@@ -108,5 +79,26 @@ position = Vector2(57, -126)
 scale = Vector2(4, 4)
 texture = ExtResource("14_32vfm")
 
+[node name="Portal2" parent="." instance=ExtResource("9_aqt02")]
+position = Vector2(-460, -16)
+level_folder = "Level_2"
+level_select = "level_2_8"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-38, 137)
+collision_mask = 8
+script = ExtResource("6_u7cq2")
+level_folder = "Level_2"
+level_select = "level_2_11"
+metadata/_edit_group_ = true
+
+[node name="Portal" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("7_menq7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(86.5, 0)
+shape = SubResource("RectangleShape2D_5pboe")
+metadata/_edit_group_ = true
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
