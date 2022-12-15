@@ -1578,7 +1578,7 @@ layer_0/tile_data = PackedInt32Array(1179581, 0, 8, 1245117, 0, 9, 1179582, 6553
 [node name="Actors" type="Node2D" parent="Node2D"]
 
 [node name="Player" parent="Node2D/Actors" instance=ExtResource("3_07ybo")]
-position = Vector2(15, 26)
+position = Vector2(368, 29)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Actors/Player"]
 remote_path = NodePath("../../../../Camera2D")
@@ -1594,7 +1594,7 @@ unique_name_in_owner = true
 script = ExtResource("6_x4x1i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(15, 26)
+position = Vector2(368, 29)
 current = true
 limit_left = -400
 limit_top = -400
