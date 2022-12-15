@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj31n2vuxecs3"]
+
+[ext_resource type="Texture2D" uid="uid://dbxrcrej3qivp" path="res://sprites/characters/NPC/halloween/1/Idle.png" id="1_x2nuv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl2bi"]
+atlas = ExtResource("1_x2nuv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7bk7"]
+atlas = ExtResource("1_x2nuv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afarb"]
+atlas = ExtResource("1_x2nuv")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6tlm"]
+atlas = ExtResource("1_x2nuv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1k8b"]
+animations = [{
+"frames": [SubResource("AtlasTexture_nl2bi"), SubResource("AtlasTexture_l7bk7"), SubResource("AtlasTexture_afarb"), SubResource("AtlasTexture_q6tlm")],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="red_dress" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_c1k8b")
+animation = &"idle"
+playing = true

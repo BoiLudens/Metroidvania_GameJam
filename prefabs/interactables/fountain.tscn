@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://df6mlqiwaiet5"]
+
+[ext_resource type="Texture2D" uid="uid://qlejgp2hu2ni" path="res://sprites/terrain/Green Zone/4 Animated objects/Fountain.png" id="1_hw8sv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvytb"]
+atlas = ExtResource("1_hw8sv")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5cdx"]
+atlas = ExtResource("1_hw8sv")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw056"]
+atlas = ExtResource("1_hw8sv")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyojs"]
+atlas = ExtResource("1_hw8sv")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlrs2"]
+animations = [{
+"frames": [SubResource("AtlasTexture_rvytb"), SubResource("AtlasTexture_b5cdx"), SubResource("AtlasTexture_yw056"), SubResource("AtlasTexture_fyojs")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="fountain" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_jlrs2")
+frame = 2

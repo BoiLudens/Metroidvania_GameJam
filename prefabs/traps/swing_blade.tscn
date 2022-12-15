@@ -37,19 +37,21 @@ _data = {
 script = ExtResource("1_wov7y")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(32, 0)
 polygon = PackedVector2Array(17, -16, 25, -14, 31, -7, 32, -4, 32, 4, 30, 9, 25, 14, 17, 16)
 
 [node name="HitBox" type="Area2D" parent="."]
 script = ExtResource("2_1g46j")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+position = Vector2(32, 0)
 polygon = PackedVector2Array(17, -16, 25, -14, 31, -7, 32, -4, 32, 4, 30, 9, 25, 14, 17, 16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.00754929, -0.165199)
 rotation = -1.5708
 frames = SubResource("SpriteFrames_i6p8m")
-offset = Vector2(-0.1652, 16.0075)
+offset = Vector2(0, 32)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "swing"

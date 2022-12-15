@@ -15,6 +15,7 @@ size = Vector2(40, 20)
 size = Vector2(20, 33)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+top_level = true
 position = Vector2(0, -18.483)
 collision_layer = 8
 script = ExtResource("1_lt4bi")

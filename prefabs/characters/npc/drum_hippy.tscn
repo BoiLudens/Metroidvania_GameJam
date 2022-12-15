@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0hm1ly8lc53k"]
+
+[ext_resource type="Texture2D" uid="uid://cxm7gkxtblh0x" path="res://sprites/characters/NPC/8/Idle.png" id="1_3gcwx"]
+[ext_resource type="Texture2D" uid="uid://br257c0v12r8x" path="res://sprites/characters/NPC/8/Special.png" id="2_qxsav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kol5t"]
+atlas = ExtResource("1_3gcwx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq4k0"]
+atlas = ExtResource("1_3gcwx")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy06y"]
+atlas = ExtResource("1_3gcwx")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dyp5"]
+atlas = ExtResource("1_3gcwx")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ropsg"]
+atlas = ExtResource("2_qxsav")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2i61"]
+atlas = ExtResource("2_qxsav")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie2uh"]
+atlas = ExtResource("2_qxsav")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3sk"]
+atlas = ExtResource("2_qxsav")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8x1i"]
+animations = [{
+"frames": [SubResource("AtlasTexture_kol5t"), SubResource("AtlasTexture_gq4k0"), SubResource("AtlasTexture_yy06y"), SubResource("AtlasTexture_2dyp5"), SubResource("AtlasTexture_ropsg"), SubResource("AtlasTexture_e2i61"), SubResource("AtlasTexture_ie2uh"), SubResource("AtlasTexture_od3sk")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="drum_hippy" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_f8x1i")
+speed_scale = 1.5
+playing = true

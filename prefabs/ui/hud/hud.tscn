@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwksyqtariv1q"]
+
+[ext_resource type="PackedScene" uid="uid://4rxh5sdqrq0n" path="res://prefabs/characters/health_bar.tscn" id="1_rdcb6"]
+[ext_resource type="Script" path="res://scripts/ui/hud/canvas_layer.gd" id="1_y7j72"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_y7j72")
+
+[node name="Health Bar" parent="." instance=ExtResource("1_rdcb6")]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=16 format=3 uid="uid://bx2ywb04437by"]
+
+[ext_resource type="Texture2D" uid="uid://b76vbuudbsbse" path="res://sprites/characters/NPC/halloween/3/Walk.png" id="1_23lw5"]
+[ext_resource type="Texture2D" uid="uid://7quqya5r2642" path="res://sprites/characters/NPC/halloween/3/Sneer.png" id="2_nswio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6srti"]
+atlas = ExtResource("1_23lw5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl5u5"]
+atlas = ExtResource("1_23lw5")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ssnk"]
+atlas = ExtResource("1_23lw5")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lig6m"]
+atlas = ExtResource("1_23lw5")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43fl8"]
+atlas = ExtResource("1_23lw5")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i6wk"]
+atlas = ExtResource("1_23lw5")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7se5f"]
+atlas = ExtResource("2_nswio")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyup7"]
+atlas = ExtResource("2_nswio")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt545"]
+atlas = ExtResource("2_nswio")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpyxg"]
+atlas = ExtResource("2_nswio")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cp4w"]
+atlas = ExtResource("2_nswio")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vrfn"]
+atlas = ExtResource("2_nswio")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq75u"]
+animations = [{
+"frames": [SubResource("AtlasTexture_6srti"), SubResource("AtlasTexture_kl5u5"), SubResource("AtlasTexture_0ssnk"), SubResource("AtlasTexture_lig6m"), SubResource("AtlasTexture_43fl8"), SubResource("AtlasTexture_0i6wk")],
+"loop": true,
+"name": &"New Anim",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_7se5f"), SubResource("AtlasTexture_gyup7"), SubResource("AtlasTexture_nt545"), SubResource("AtlasTexture_wpyxg"), SubResource("AtlasTexture_2cp4w"), SubResource("AtlasTexture_8vrfn")],
+"loop": true,
+"name": &"New Anim 1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"New Anim 2",
+"speed": 5.0
+}]
+
+[node name="cape" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_iq75u")
+animation = &"New Anim 1"
+playing = true
