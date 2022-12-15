@@ -1,6 +1,5 @@
 extends Area2D
 
-var entered = false
 @export var level_folder: String
 @export var level_select: String
 
