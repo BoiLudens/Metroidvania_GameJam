@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1v5uyqw6o3u2"]
 
-[ext_resource type="AudioStream" uid="uid://cx76s8a1xbl3w" path="res://Sounds/background/01 - Four Brave Champions.mp3" id="1_j8vco"]
+[ext_resource type="AudioStream" uid="uid://c83j7jbmtol4" path="res://sounds/background/FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3" id="1_jfaqt"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_j8vco")
+stream = ExtResource("1_jfaqt")
+autoplay = true
 bus = &"Music"

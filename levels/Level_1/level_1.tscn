@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://0hgyjrylg1xe"]
+[gd_scene load_steps=8 format=3 uid="uid://dselhm8obja2j"]
 
 [ext_resource type="TileSet" uid="uid://d2nyxqhw4bdiu" path="res://levels/level.tres" id="1_kuuu2"]
 [ext_resource type="PackedScene" uid="uid://brre6f3cwa41n" path="res://prefabs/characters/player.tscn" id="2_dshyj"]
 [ext_resource type="PackedScene" uid="uid://d4bgcyt51yamp" path="res://prefabs/enemies/gas_mask.tscn" id="3_vqwc3"]
-[ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="4_oihpm"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="5_xvw2e"]
 [ext_resource type="PackedScene" uid="uid://scwsmpb0b8t4" path="res://prefabs/interactables/portal.tscn" id="6_pq3f5"]
 [ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="8_p8v3d"]
-[ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="9_yep7w"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="10_yku4t"]
 
 [node name="level_1" type="Node2D"]
@@ -34,10 +32,6 @@ remote_path = NodePath("../../../Camera2D")
 [node name="GasMask" parent="Actors" instance=ExtResource("3_vqwc3")]
 position = Vector2(160, -22)
 
-[node name="BikerBoss" parent="Actors" instance=ExtResource("4_oihpm")]
-visible = false
-position = Vector2(371, -54)
-
 [node name="GameManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_xvw2e")
@@ -51,9 +45,6 @@ level_select = "level_1_2"
 
 [node name="Spike" parent="Hazards" instance=ExtResource("8_p8v3d")]
 position = Vector2(-193, -16)
-
-[node name="SwingBlade" parent="Hazards" instance=ExtResource("9_yep7w")]
-position = Vector2(-484, -405)
 
 [node name="Spike2" parent="Hazards" instance=ExtResource("8_p8v3d")]
 position = Vector2(567, -16)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c3haexifv2toh"]
+[gd_scene load_steps=25 format=3 uid="uid://c3haexifv2toh"]
 
 [ext_resource type="Texture2D" uid="uid://f03ojgkykbfm" path="res://sprites/terrain/Green Zone/tilemap/Tiles.png" id="1_gbxrc"]
 [ext_resource type="Texture2D" uid="uid://2sqm8vnoyk4y" path="res://sprites/terrain/industrial/Tiles.png" id="2_3jevj"]
@@ -7,15 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://gjl2ei62wgo" path="res://prefabs/enemies/biker_boss.tscn" id="5_5tgo2"]
 [ext_resource type="PackedScene" uid="uid://crstrth8cg8o7" path="res://prefabs/enemies/drone.tscn" id="6_gby0k"]
 [ext_resource type="Script" path="res://scripts/state/game_manager.gd" id="6_yxi1b"]
-[ext_resource type="PackedScene" uid="uid://chlgqsfa621qr" path="res://prefabs/traps/spike.tscn" id="9_guhmm"]
-[ext_resource type="PackedScene" uid="uid://dbbpo4t0p0uo7" path="res://prefabs/traps/swing_blade.tscn" id="10_s27jm"]
 [ext_resource type="PackedScene" uid="uid://clr4swltub8aw" path="res://prefabs/ui/collision/collision_tile.tscn" id="11_3t7bh"]
 [ext_resource type="Texture2D" uid="uid://yi57wu0dok1i" path="res://sprites/terrain/industrial/ads/2 Billboard/128x64.png" id="12_4pu2g"]
-[ext_resource type="Texture2D" uid="uid://bvv6syp82sw0f" path="res://sprites/terrain/industrial/ads/1 Ad/128x64/15.png" id="13_v1rqm"]
-[ext_resource type="PackedScene" uid="uid://df6mlqiwaiet5" path="res://prefabs/interactables/fountain.tscn" id="14_x1yyy"]
-[ext_resource type="Texture2D" uid="uid://b04ncpfm4cche" path="res://sprites/terrain/Green Zone/objects/Benches/1.png" id="15_73mc0"]
-[ext_resource type="Texture2D" uid="uid://5sww58e8f0mt" path="res://sprites/terrain/Green Zone/objects/Benches/2.png" id="16_j3n40"]
-[ext_resource type="PackedScene" uid="uid://cprwbpgaa0d5m" path="res://prefabs/interactables/door.tscn" id="17_7tyh1"]
 [ext_resource type="PackedScene" uid="uid://dem7q12xs3bn0" path="res://prefabs/interactables/screen.tscn" id="18_xrdul"]
 [ext_resource type="Texture2D" uid="uid://8wx465cviyqm" path="res://sprites/terrain/industrial/ads/2 Billboard/22x40_2.png" id="19_fx2v2"]
 [ext_resource type="Texture2D" uid="uid://cy36gadkryg4e" path="res://sprites/terrain/industrial/ads/1 Ad/22x40/1.png" id="20_amg2o"]
@@ -2474,7 +2467,7 @@ layer_0/tile_data = PackedInt32Array(65532, 524290, 0, 131068, 524290, 1, 65534,
 [node name="Actors" type="Node2D" parent="Node2D"]
 
 [node name="Player" parent="Node2D/Actors" instance=ExtResource("3_4gxgg")]
-position = Vector2(72, -912)
+position = Vector2(113, -19)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Actors/Player"]
 remote_path = NodePath("../../../../Camera2D")
@@ -2510,19 +2503,13 @@ unique_name_in_owner = true
 script = ExtResource("6_yxi1b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(72, -912)
+position = Vector2(113, -19)
 current = true
 limit_left = -600
 limit_right = 600
 limit_bottom = 80
 
 [node name="Hazards" type="Node2D" parent="."]
-
-[node name="Spike" parent="Hazards" instance=ExtResource("9_guhmm")]
-position = Vector2(-673, -37)
-
-[node name="SwingBlade" parent="Hazards" instance=ExtResource("10_s27jm")]
-position = Vector2(-749, -244)
 
 [node name="Collisions" type="Node2D" parent="."]
 position = Vector2(1321, -431)
@@ -2547,55 +2534,8 @@ position = Vector2(199, -330)
 collision_layer = 4
 collision_mask = 0
 
-[node name="Node2D5" parent="Collisions" instance=ExtResource("11_3t7bh")]
-position = Vector2(-2006, -57)
-collision_layer = 4
-collision_mask = 0
-
-[node name="Node2D6" parent="Collisions" instance=ExtResource("11_3t7bh")]
-position = Vector2(-1980, -87)
-collision_layer = 4
-collision_mask = 0
-
 [node name="polish" type="Node2D" parent="."]
 position = Vector2(280, -10)
-
-[node name="future" type="Sprite2D" parent="polish"]
-visible = false
-position = Vector2(-443, -158)
-scale = Vector2(3, 3)
-texture = ExtResource("12_4pu2g")
-metadata/_edit_group_ = true
-
-[node name="15" type="Sprite2D" parent="polish/future"]
-position = Vector2(0.333336, 0)
-texture = ExtResource("13_v1rqm")
-metadata/_edit_group_ = true
-
-[node name="fountain" parent="polish" instance=ExtResource("14_x1yyy")]
-visible = false
-position = Vector2(37, -27)
-playing = true
-
-[node name="bench1" type="Sprite2D" parent="polish"]
-visible = false
-position = Vector2(-21, -1)
-texture = ExtResource("15_73mc0")
-
-[node name="bench2" type="Sprite2D" parent="polish"]
-visible = false
-position = Vector2(118, -1)
-texture = ExtResource("16_j3n40")
-
-[node name="door2" parent="polish" instance=ExtResource("17_7tyh1")]
-position = Vector2(-744, -21)
-frame = 2
-playing = false
-
-[node name="door" parent="polish" instance=ExtResource("17_7tyh1")]
-position = Vector2(-136, -22)
-frame = 2
-playing = false
 
 [node name="screen2" parent="polish" instance=ExtResource("18_xrdul")]
 position = Vector2(-704, -10)

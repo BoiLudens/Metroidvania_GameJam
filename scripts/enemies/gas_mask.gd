@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var starting_direction: Vector2 = Vector2(0,1)
 @export var idle_time: float = .8
-@export var health_max: float = 100
-@export var health_value: float = 100 
+@export var health_max: float = 20
+@export var health_value: float = 20
 
 @onready var idle_timer: Timer = $Timers/IdleTimer
 @onready var detect_timer: Timer = $Timers/DetectTimer
