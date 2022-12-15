@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	SceneTransition.change_scene_to_file("res://levels/debug_land.tscn")
+	SceneTransition.change_scene_to_file("res://levels/Level_1/level_1.tscn")
 
 
 func _on_options_pressed():

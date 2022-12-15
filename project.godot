@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="MetroidVania GameJam"
-run/main_scene="res://levels/debug_land.tscn"
+run/main_scene="res://levels/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

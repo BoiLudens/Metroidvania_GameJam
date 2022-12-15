@@ -92,6 +92,7 @@ func die():
 	biker_boss_sprite.visible = false
 	death.visible = true
 	death.play("death")
+	SceneTransition.change_scene_to_file("res://levels/end.tscn")
 
 func take_damage(damage):
 	health_value -= damage
@@ -104,8 +105,9 @@ func check_death():
 func set_health_bar(health):
 	health_bar.value = health_value/health_max * 100
 
-func _on_death_sprite_animation_finished():
-	queue_free()
+# Last minute change so that scene transition is bug free
+# func _on_death_sprite_animation_finished():
+# 	queue_free()
 
 func _on_detection_area_body_entered(body):
 	detect(body)
