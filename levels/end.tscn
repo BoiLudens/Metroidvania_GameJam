@@ -9,20 +9,11 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 360.0
-offset_bottom = 360.0
 texture = ExtResource("1_uv0u7")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 364.0
-offset_top = 76.0
-offset_right = 529.0
-offset_bottom = 284.0
-text = "Dedicated to the 
-memory of Rick Stolp
-
-~Squaw City~
+text = "~Squaw City~
 Matthew Coker
 Daniel Carey
 Josh Doub
